@@ -69,13 +69,13 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 14px;
-      max-width: 500px;
+      max-width: 800px;
     }
     .info-block {
-      flex: 1 1 45%;
+      flex: 1 1 calc(33.33% - 14px);
       border-radius: 15px;
       color: #fff;
-      height: 70px;
+      height: 80px;
       text-align: center;
       box-shadow: 0 1px 7px rgba(0,0,0,.11);
       cursor: pointer;
@@ -89,7 +89,7 @@
     .info6 { background:#22b900; color:#fff; }
     .info-block:hover { transform: scale(1.03); }
 
-    /* ---- 3 vertical sections ---- */
+    /* ---- 4 vertical sections ---- */
     .section-container {
       max-width: 1100px;
       margin: 40px auto 0;
@@ -151,13 +151,13 @@
       .top-left .logo-circle { width: 40px; height: 40px; }
       .header h2 { font-size: 30px; }
       nav a { padding: 8px 10px; font-size: 14px; }
-      .info-block { flex: 1 1 45%; height: 60px; }
+      .info-block { flex: 1 1 calc(50% - 14px); height: 70px; }
       .section-title { font-size: 15px; }
       .view-all-btn { display:block; margin:10px auto; }
     }
 
     @media(max-width: 480px){
-      .info-block { flex: 1 1 100%; }
+      .info-block { flex: 1 1 100%; height: 60px; }
       .section-container { flex-direction: column; gap: 25px; }
     }
   </style>
@@ -186,7 +186,7 @@
     <a href="#">Contact</a>
   </nav>
 
-  <!-- 6 Color Info Boxes -->
+  <!-- 6 Color Info Boxes (3-3 layout) -->
   <div class="info-blocks">
     <a class="info-block info1" href="#"></a>
     <a class="info-block info2" href="#"></a>
@@ -196,7 +196,7 @@
     <a class="info-block info6" href="#"></a>
   </div>
 
-  <!-- 3 Vertical Section Boxes -->
+  <!-- 4 Vertical Section Boxes -->
   <div class="section-container">
     <div class="section-column">
       <div class="section-title">Results</div>
@@ -217,6 +217,13 @@
       <div class="vertical-box"></div>
       <div class="vertical-box"></div>
       <a href="#" class="view-all-btn">View All Jobs</a>
+    </div>
+
+    <div class="section-column">
+      <div class="section-title">Answer Key</div>
+      <div class="vertical-box"></div>
+      <div class="vertical-box"></div>
+      <a href="#" class="view-all-btn">View All Answer Keys</a>
     </div>
   </div>
 
