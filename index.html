@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <title>MRRESULT</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body { background:#fff; font-family: Arial, sans-serif; margin:0; }
+    body { margin: 0; background: #fff; font-family: Arial,sans-serif; }
 
-    /* HEADER */
     .header {
       background: #a41f3a;
       color: #fff;
@@ -24,6 +23,7 @@
       display: flex;
       align-items: center;
       font-size: 18px;
+      font-weight: bold;
       color: #fff;
     }
 
@@ -47,58 +47,80 @@
       display: block;
     }
 
-    /* NAVBAR */
     .nav-link { color: #fff !important; }
 
-    /* INFO BLOCKS SECTION */
+    /* ---- 6 colorful info boxes ---- */
     .info-blocks {
-      margin: 40px auto 0 auto;
-      max-width: 380px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      justify-content: center;
+      margin:30px auto 0 auto;
+      max-width:380px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      justify-content:center;
     }
-
     .info-block {
-      min-width: 140px;
-      flex: 1;
-      border-radius: 15px;
-      color: #fff;
-      text-align: center;
-      font-size: 15px;
-      font-weight: 600;
-      padding: 40px 10px;
-      box-shadow: 0 1px 7px rgba(0,0,0,.11);
-      cursor: pointer;
+      min-width:140px;
+      flex:1;
+      border-radius:15px;
+      color:#fff;
+      text-align:center;
+      font-size:15px;
+      font-weight:600;
+      padding:15px 10px;
+      box-shadow:0 1px 7px rgba(0,0,0,.11);
+      cursor:pointer;
       transition: transform .11s;
       text-decoration: none;
     }
-
-    .info-block:hover { transform: translateY(-3px); }
-
     .info1 { background:#e950cb; }
     .info2 { background:#484ff9; }
     .info3 { background:#b2000e; }
     .info4 { background:#ef7c12; }
     .info5 { background:#b56700; }
-    .info6 { background:#22b900; }
+    .info6 { background:#22b900; color:#fff;}
+    .info-block:hover { transform: scale(1.03); }
 
-    .live-banner {
-      background:#fff9e7;
-      color:#a41f3a;
-      font-weight:600;
-      padding:10px;
-      border-radius:8px;
-      text-align:center;
-      margin: 20px auto 0 auto;
-      max-width:390px;
-      box-shadow: 0 1px 4px #eee;
-      font-size:15px;
-      border:1px solid #ffe186;
+    /* ---- 3 vertical box section ---- */
+    .section-title {
+      background: #b9003a;
+      color: #fff;
+      padding: 14px;
+      margin-top: 40px;
+      border-radius: 6px;
+      text-align: center;
+      font-weight: 600;
     }
 
-    /* FOOTER + FEEDBACK FORM */
+    .section-column { margin-top: 12px; }
+
+    .vertical-box {
+      background: #f2f2f2;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      transition: transform .12s ease, box-shadow .12s ease;
+      overflow: hidden;
+    }
+
+    .vertical-box:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    .view-all-btn {
+      display: inline-block;
+      background: #b9003a;
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-top: 5px;
+      font-size: 14px;
+      transition: background 0.2s ease;
+      text-decoration: none;
+    }
+    .view-all-btn:hover { background: #8b002d; }
+
     footer {
       background:#111;
       color:#ccc;
@@ -109,17 +131,14 @@
     }
 
     @media(max-width: 500px){
-      .header h2 { font-size: 30px; }
-      .top-left { left: 10px; font-size: 16px; }
-      .top-left .logo-circle { width:40px; height:40px; margin-right:8px; }
-      .info-blocks { max-width:95vw; gap:8px; }
-      .info-block { font-size:14px; padding:35px 8px; }
+      .info-blocks { max-width:98vw; gap:8px; }
+      .info-block { padding:12px 5px; font-size:14px; }
+      .section-title { font-size:15px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
   <div class="header">
     <div class="top-left">
       <div class="logo-circle">
@@ -131,9 +150,8 @@
     <div style="font-size:14px; margin-top:6px;">www.mrresult.com</div>
   </div>
 
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand navbar-dark" style="background: #780622;">
-    <a class="navbar-brand" href="#">Home</a>
+  <nav class="navbar navbar-expand navbar-dark" style="background: #780622; display:flex; justify-content:center;">
+    <a class="nav-link" href="#">Home</a>
     <a class="nav-link" href="#">Syllabus</a>
     <a class="nav-link" href="#">Admit Card</a>
     <a class="nav-link" href="#">Result</a>
@@ -141,11 +159,7 @@
     <a class="nav-link" href="#">Contact</a>
   </nav>
 
-  <!-- WELCOME + BOX SECTION -->
-  <div class="live-banner">
-    🔴 Welcome To MRRESULT, Sarkari Job (www.mrresult.com)
-  </div>
-
+  <!-- 6 Color Info Boxes -->
   <div class="info-blocks">
     <a class="info-block info1" href="#"></a>
     <a class="info-block info2" href="#"></a>
@@ -155,7 +169,33 @@
     <a class="info-block info6" href="#"></a>
   </div>
 
-  <!-- FOOTER -->
+  <!-- 3 Vertical Boxes Section -->
+  <div class="container" style="max-width:1100px; margin:auto;">
+    <div class="row mt-4" style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center;">
+      <div class="col-md-4" style="flex:1; min-width:280px;">
+        <div class="section-title">Results</div>
+        <div class="vertical-box"></div>
+        <div class="vertical-box"></div>
+        <a href="#" class="view-all-btn">View All Results</a>
+      </div>
+
+      <div class="col-md-4" style="flex:1; min-width:280px;">
+        <div class="section-title">Admit Card</div>
+        <div class="vertical-box"></div>
+        <div class="vertical-box"></div>
+        <a href="#" class="view-all-btn">View All Admit Cards</a>
+      </div>
+
+      <div class="col-md-4" style="flex:1; min-width:280px;">
+        <div class="section-title">Latest Jobs</div>
+        <div class="vertical-box"></div>
+        <div class="vertical-box"></div>
+        <a href="#" class="view-all-btn">View All Jobs</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
   <footer>
     <p>© 2025 Mahesh Rabadka | Email: 
       <a href="mailto:maheshrabarka2005@gmail.com" style="color:#ff3366; text-decoration:none; font-weight:bold;">maheshrabarka2005@gmail.com</a>
@@ -163,7 +203,7 @@
     <button onclick="openFeedback()" style="margin-top:10px; background:#b9003a; color:#fff; border:none; padding:8px 14px; border-radius:6px;">💬 Give Feedback</button>
   </footer>
 
-  <!-- FEEDBACK FORM -->
+  <!-- Feedback Popup -->
   <div id="feedbackForm" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:#fff; padding:20px; box-shadow:0 6px 20px rgba(0,0,0,0.3); border-radius:8px; z-index:1000; width:90%; max-width:400px;">
     <h5>Send Feedback</h5>
     <input type="text" placeholder="Your Name" style="width:100%; padding:8px; margin-top:8px; border-radius:6px; border:1px solid #ccc;">
@@ -180,10 +220,5 @@
       document.getElementById("feedbackForm").style.display = "none";
     }
   </script>
-
-  <!-- Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>
