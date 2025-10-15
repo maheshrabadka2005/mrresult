@@ -47,67 +47,82 @@
       display: block;
     }
 
-    .nav-link { color: #fff !important; }
+    nav {
+      background: #780622;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 15px;
+      font-weight: 500;
+      font-size: 16px;
+    }
+    nav a:hover { background: #9b0830; }
 
     /* ---- 6 colorful info boxes ---- */
     .info-blocks {
-      margin:30px auto 0 auto;
-      max-width:380px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:14px;
-      justify-content:center;
+      margin: 25px auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      max-width: 500px;
     }
     .info-block {
-      min-width:140px;
-      flex:1;
-      border-radius:15px;
-      color:#fff;
-      text-align:center;
-      font-size:15px;
-      font-weight:600;
-      padding:15px 10px;
-      box-shadow:0 1px 7px rgba(0,0,0,.11);
-      cursor:pointer;
+      flex: 1 1 45%;
+      border-radius: 15px;
+      color: #fff;
+      height: 70px;
+      text-align: center;
+      box-shadow: 0 1px 7px rgba(0,0,0,.11);
+      cursor: pointer;
       transition: transform .11s;
-      text-decoration: none;
     }
     .info1 { background:#e950cb; }
     .info2 { background:#484ff9; }
     .info3 { background:#b2000e; }
     .info4 { background:#ef7c12; }
     .info5 { background:#b56700; }
-    .info6 { background:#22b900; color:#fff;}
+    .info6 { background:#22b900; color:#fff; }
     .info-block:hover { transform: scale(1.03); }
 
-    /* ---- 3 vertical box section ---- */
+    /* ---- 3 vertical sections ---- */
+    .section-container {
+      max-width: 1100px;
+      margin: 40px auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 0 10px;
+    }
+    .section-column {
+      flex: 1 1 320px;
+      background: #fff;
+    }
     .section-title {
       background: #b9003a;
       color: #fff;
       padding: 14px;
-      margin-top: 40px;
       border-radius: 6px;
       text-align: center;
       font-weight: 600;
     }
-
-    .section-column { margin-top: 12px; }
-
     .vertical-box {
       background: #f2f2f2;
       border-radius: 8px;
       padding: 12px;
-      margin-bottom: 12px;
+      margin: 12px 0;
       box-shadow: 0 1px 3px rgba(0,0,0,0.06);
       transition: transform .12s ease, box-shadow .12s ease;
-      overflow: hidden;
     }
-
     .vertical-box:hover {
       transform: translateY(-4px);
       box-shadow: 0 6px 18px rgba(0,0,0,0.08);
     }
-
     .view-all-btn {
       display: inline-block;
       background: #b9003a;
@@ -116,8 +131,8 @@
       border-radius: 20px;
       margin-top: 5px;
       font-size: 14px;
-      transition: background 0.2s ease;
       text-decoration: none;
+      text-align: center;
     }
     .view-all-btn:hover { background: #8b002d; }
 
@@ -130,15 +145,26 @@
       font-size:14px;
     }
 
-    @media(max-width: 500px){
-      .info-blocks { max-width:98vw; gap:8px; }
-      .info-block { padding:12px 5px; font-size:14px; }
-      .section-title { font-size:15px; }
+    /* ---- Mobile Responsive ---- */
+    @media(max-width: 768px){
+      .top-left { font-size: 16px; left: 10px; }
+      .top-left .logo-circle { width: 40px; height: 40px; }
+      .header h2 { font-size: 30px; }
+      nav a { padding: 8px 10px; font-size: 14px; }
+      .info-block { flex: 1 1 45%; height: 60px; }
+      .section-title { font-size: 15px; }
+      .view-all-btn { display:block; margin:10px auto; }
+    }
+
+    @media(max-width: 480px){
+      .info-block { flex: 1 1 100%; }
+      .section-container { flex-direction: column; gap: 25px; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Header -->
   <div class="header">
     <div class="top-left">
       <div class="logo-circle">
@@ -150,13 +176,14 @@
     <div style="font-size:14px; margin-top:6px;">www.mrresult.com</div>
   </div>
 
-  <nav class="navbar navbar-expand navbar-dark" style="background: #780622; display:flex; justify-content:center;">
-    <a class="nav-link" href="#">Home</a>
-    <a class="nav-link" href="#">Syllabus</a>
-    <a class="nav-link" href="#">Admit Card</a>
-    <a class="nav-link" href="#">Result</a>
-    <a class="nav-link" href="#">Job</a>
-    <a class="nav-link" href="#">Contact</a>
+  <!-- Navbar -->
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Syllabus</a>
+    <a href="#">Admit Card</a>
+    <a href="#">Result</a>
+    <a href="#">Job</a>
+    <a href="#">Contact</a>
   </nav>
 
   <!-- 6 Color Info Boxes -->
@@ -169,29 +196,27 @@
     <a class="info-block info6" href="#"></a>
   </div>
 
-  <!-- 3 Vertical Boxes Section -->
-  <div class="container" style="max-width:1100px; margin:auto;">
-    <div class="row mt-4" style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center;">
-      <div class="col-md-4" style="flex:1; min-width:280px;">
-        <div class="section-title">Results</div>
-        <div class="vertical-box"></div>
-        <div class="vertical-box"></div>
-        <a href="#" class="view-all-btn">View All Results</a>
-      </div>
+  <!-- 3 Vertical Section Boxes -->
+  <div class="section-container">
+    <div class="section-column">
+      <div class="section-title">Results</div>
+      <div class="vertical-box"></div>
+      <div class="vertical-box"></div>
+      <a href="#" class="view-all-btn">View All Results</a>
+    </div>
 
-      <div class="col-md-4" style="flex:1; min-width:280px;">
-        <div class="section-title">Admit Card</div>
-        <div class="vertical-box"></div>
-        <div class="vertical-box"></div>
-        <a href="#" class="view-all-btn">View All Admit Cards</a>
-      </div>
+    <div class="section-column">
+      <div class="section-title">Admit Card</div>
+      <div class="vertical-box"></div>
+      <div class="vertical-box"></div>
+      <a href="#" class="view-all-btn">View All Admit Cards</a>
+    </div>
 
-      <div class="col-md-4" style="flex:1; min-width:280px;">
-        <div class="section-title">Latest Jobs</div>
-        <div class="vertical-box"></div>
-        <div class="vertical-box"></div>
-        <a href="#" class="view-all-btn">View All Jobs</a>
-      </div>
+    <div class="section-column">
+      <div class="section-title">Latest Jobs</div>
+      <div class="vertical-box"></div>
+      <div class="vertical-box"></div>
+      <a href="#" class="view-all-btn">View All Jobs</a>
     </div>
   </div>
 
@@ -220,5 +245,6 @@
       document.getElementById("feedbackForm").style.display = "none";
     }
   </script>
+
 </body>
 </html>
