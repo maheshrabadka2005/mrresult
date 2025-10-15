@@ -4,15 +4,13 @@
   <meta charset="UTF-8" />
   <title>MRRESULT</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
-  
-  <!-- Stylish font for name -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
-  
   <style>
+    body { background:#fff; }
+
     .header {
       background: #a41f3a;
       color: #fff;
-      padding: 10px 0;
+      padding: 18px 0;
       text-align: center;
       position: relative;
       font-family: Arial, sans-serif;
@@ -22,16 +20,17 @@
     .top-left {
       position: absolute;
       left: 20px;
-      top: 10px;
+      top: 12px;
       display: flex;
       align-items: center;
       font-size: 18px;
+      font-weight: bold;
+      color: #fff;
     }
 
-    /* Circular logo */
     .top-left .logo-circle {
-      width: 40px;
-      height: 40px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       background-color: #000;
       display: flex;
@@ -39,7 +38,7 @@
       justify-content: center;
       overflow: hidden;
       border: 2px solid white;
-      margin-right: 10px;
+      margin-right: 12px;
     }
 
     .top-left .logo-circle img {
@@ -49,16 +48,6 @@
       display: block;
     }
 
-    /* Stylish name only */
-    .top-left .site-name {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      letter-spacing: 1px;
-      font-size: 19px;
-      color: #fff;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    }
-
     .nav-link {
       color: #fff !important;
     }
@@ -66,15 +55,55 @@
     .section-title {
       background: #b9003a;
       color: #fff;
-      padding: 10px;
+      padding: 14px;
       margin-top: 20px;
+      border-radius: 6px;
+      text-align: center;
+      font-weight: 600;
     }
 
-    .empty-box {
-      height: 50px;
-      margin: 5px 0;
-      background: #eee;
-      border-radius: 5px;
+    /* Vertical boxes (cards) */
+    .section-column {
+      margin-top: 12px;
+    }
+
+    .vertical-box {
+      background: #f2f2f2;
+      border-radius: 8px;
+      padding: 12px;
+      height: 110px;           /* box height - change as needed */
+      margin-bottom: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      transition: transform .12s ease, box-shadow .12s ease;
+      overflow: hidden;
+    }
+
+    .vertical-box:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    .box-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #222;
+    }
+
+    .box-desc {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.2;
+    }
+
+    /* Make sure columns stack nicely on small screens */
+    @media (max-width: 767px) {
+      .vertical-box { height: 100px; }
+      .top-left { left: 12px; font-size: 16px; }
+      .top-left .logo-circle { width:40px; height:40px; margin-right:8px; }
     }
   </style>
 </head>
@@ -84,10 +113,10 @@
       <div class="logo-circle">
         <img src="tiger.png" alt="Logo" />
       </div>
-      <span class="site-name">Mahesh Rabadka</span>
+      Mahesh Rabadka
     </div>
-    <h2>MRRESULT</h2>
-    <div>www.mrresult.com</div>
+    <h2 style="margin:0; font-size:42px; letter-spacing:2px;">MRRESULT</h2>
+    <div style="font-size:14px; margin-top:6px;">www.mrresult.com</div>
   </div>
 
   <nav class="navbar navbar-expand navbar-dark" style="background: #780622;">
@@ -100,6 +129,7 @@
   </nav>
 
   <div class="container mt-4">
+    <!-- placeholder grid (same as before) -->
     <div class="row text-center">
       <div class="col-3 empty-box"></div>
       <div class="col-3 empty-box"></div>
@@ -113,6 +143,7 @@
       <div class="col-3 empty-box"></div>
     </div>
 
+    <!-- Section titles -->
     <div class="row mt-4">
       <div class="col-md-4">
         <div class="section-title">Results</div>
@@ -124,6 +155,68 @@
         <div class="section-title">Latest Jobs</div>
       </div>
     </div>
+
+    <!-- Vertical boxes under each section -->
+    <div class="row mt-3">
+      <!-- Results column -->
+      <div class="col-md-4 section-column">
+        <!-- Example boxes - copy/duplicate or generate dynamically from admin -->
+        <div class="vertical-box">
+          <div class="box-title">Rajasthan Police Result 2025</div>
+          <div class="box-desc">Final result declared — Download PDF and check cut-off & merit list.</div>
+        </div>
+
+        <div class="vertical-box">
+          <div class="box-title">University X Semester Results</div>
+          <div class="box-desc">Semester 2 results updated. Enter roll number to view marks.</div>
+        </div>
+
+        <div class="vertical-box">
+          <div class="box-title">Board Exam 10th</div>
+          <div class="box-desc">Provisional marksheet available for download.</div>
+        </div>
+      </div>
+
+      <!-- Admit Card column -->
+      <div class="col-md-4 section-column">
+        <div class="vertical-box">
+          <div class="box-title">Rajasthan Police Admit Card</div>
+          <div class="box-desc">Admit cards for PET/PMT available — Download now.</div>
+        </div>
+
+        <div class="vertical-box">
+          <div class="box-title">University Admit Card</div>
+          <div class="box-desc">Download your admit card using registration number & DOB.</div>
+        </div>
+
+        <div class="vertical-box">
+          <div class="box-title">SSC Admit Card</div>
+          <div class="box-desc">Admit cards will be released 7 days before the exam.</div>
+        </div>
+      </div>
+
+      <!-- Latest Jobs column -->
+      <div class="col-md-4 section-column">
+        <div class="vertical-box">
+          <div class="box-title">Job — Clerk (Bank)</div>
+          <div class="box-desc">Apply by 20 Oct 2025. Age limit and vacancy details inside.</div>
+        </div>
+
+        <div class="vertical-box">
+          <div class="box-title">Teacher Vacancy — District</div>
+          <div class="box-desc">Walk-in interview scheduled next week. See notification.</div>
+        </div>
+
+        <div class="vertical-box">
+          <div class="box-title">Constable Recruitment</div>
+          <div class="box-desc">Online application open — check eligibility & pay fees.</div>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- Optional: Bootstrap JS (if you need dropdowns / interactivity later) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
