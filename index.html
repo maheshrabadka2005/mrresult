@@ -209,4 +209,33 @@
 }
 </style>
 </body>
+<!-- WhatsApp Pop-up Icon -->
+<style>
+  /* Pop-up container */
+  #whatsapp-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    cursor: pointer;
+    animation: blink 1s infinite;
+  }
+
+  /* Blinking animation */
+  @keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.2; }
+    100% { opacity: 1; }
+  }
+
+  /* Icon styling */
+  #whatsapp-popup img {
+    width: 60px;
+    height: 60px;
+  }
+</style>
+
+<a href="https://whatsapp.com/channel/0029VbBcQBmA2pLGkcmu2Y0O" target="_blank" id="whatsapp-popup">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Join WhatsApp" />
+</a>
 </html>
