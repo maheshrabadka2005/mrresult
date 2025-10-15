@@ -163,6 +163,68 @@
     <div class="section">
       <div class="section-title">Result</div>
     </div>
+  <!-- 4 VERTICAL RECTANGLE BOXES WITH VIEW ALL BUTTONS -->
+<div class="sections">
+  <div class="section">
+    <div class="section-title">Results</div>
+    <a href="#" class="view-all-btn" style="display:inline-block; background:#b9003a; color:#fff; padding:6px 14px; border-radius:20px; margin-top:8px; text-decoration:none; font-size:14px;">View All Results</a>
   </div>
+  <div class="section">
+    <div class="section-title">Admit Card</div>
+    <a href="#" class="view-all-btn" style="display:inline-block; background:#b9003a; color:#fff; padding:6px 14px; border-radius:20px; margin-top:8px; text-decoration:none; font-size:14px;">View All Admit Cards</a>
+  </div>
+  <div class="section">
+    <div class="section-title">Latest Jobs</div>
+    <a href="#" class="view-all-btn" style="display:inline-block; background:#b9003a; color:#fff; padding:6px 14px; border-radius:20px; margin-top:8px; text-decoration:none; font-size:14px;">View All Jobs</a>
+  </div>
+  <div class="section">
+    <div class="section-title">Answer Key</div>
+    <a href="#" class="view-all-btn" style="display:inline-block; background:#b9003a; color:#fff; padding:6px 14px; border-radius:20px; margin-top:8px; text-decoration:none; font-size:14px;">View All Answer Keys</a>
+  </div>
+</div>
+<!-- Footer -->
+<footer style="background:#111; color:#ccc; text-align:center; padding:25px 10px; font-size:14px;">
+  <p style="margin:5px 0;">© 2025 Mahesh Rabadka | Email: 
+    <a href="mailto:maheshrabarka2005@gmail.com" style="color:#ff3366; text-decoration:none; font-weight:bold;">maheshrabarka2005@gmail.com</a>
+  </p>
+  <button onclick="openFeedback()" style="margin:10px auto 0 auto; display:block; background:#b9003a; color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer;">
+    💬 Give Feedback
+  </button>
+</footer>
+
+<!-- Feedback Form -->
+<div id="feedbackForm" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:#fff; padding:20px; box-shadow:0 6px 20px rgba(0,0,0,0.3); border-radius:8px; z-index:1000; width:90%; max-width:400px;">
+  <div style="display:flex; justify-content:flex-end;">
+    <button onclick="closeFeedback()" style="background:none; border:none; font-size:20px; cursor:pointer;">&times;</button>
+  </div>
+  <h5 style="margin-bottom:10px; text-align:center;">Send Feedback</h5>
+  <input type="text" placeholder="Your Name" style="width:100%; padding:8px; margin-top:8px; border-radius:6px; border:1px solid #ccc;">
+  <textarea rows="3" placeholder="Your Feedback" style="width:100%; padding:8px; margin-top:8px; border-radius:6px; border:1px solid #ccc;"></textarea>
+  <button onclick="submitFeedback()" style="margin-top:10px; background:#b9003a; color:white; border:none; padding:8px 14px; border-radius:6px; cursor:pointer; width:100%;">Submit</button>
+</div>
+
+<script>
+  function openFeedback() {
+    document.getElementById("feedbackForm").style.display = "block";
+  }
+  function closeFeedback() {
+    document.getElementById("feedbackForm").style.display = "none";
+  }
+  function submitFeedback() {
+    alert("Thank you for your feedback!");
+    closeFeedback();
+  }
+</script>
+
+<style>
+/* Responsive adjustments for mobile */
+@media(max-width:600px){
+  footer { padding:20px 10px; font-size:13px; }
+  footer button { width:80%; padding:8px; font-size:14px; }
+  #feedbackForm { width:90%; padding:15px; }
+  #feedbackForm input, #feedbackForm textarea { font-size:14px; }
+  #feedbackForm button { width:100%; padding:8px; font-size:14px; }
+}
+</style>
 </body>
 </html>
