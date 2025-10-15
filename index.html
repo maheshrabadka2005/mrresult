@@ -5,10 +5,12 @@
   <title>MRRESULT</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
   <style>
+    body { background:#fff; }
+
     .header {
       background: #a41f3a;
       color: #fff;
-      padding: 10px 0;
+      padding: 18px 0;
       text-align: center;
       position: relative;
       font-family: Arial, sans-serif;
@@ -18,17 +20,17 @@
     .top-left {
       position: absolute;
       left: 20px;
-      top: 10px;
+      top: 12px;
       display: flex;
       align-items: center;
       font-size: 18px;
       font-weight: bold;
+      color: #fff;
     }
 
-    /* Circular logo with black background */
     .top-left .logo-circle {
-      width: 40px;
-      height: 40px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       background-color: #000;
       display: flex;
@@ -36,7 +38,7 @@
       justify-content: center;
       overflow: hidden;
       border: 2px solid white;
-      margin-right: 10px;
+      margin-right: 12px;
     }
 
     .top-left .logo-circle img {
@@ -53,15 +55,76 @@
     .section-title {
       background: #b9003a;
       color: #fff;
-      padding: 10px;
+      padding: 14px;
       margin-top: 20px;
+      border-radius: 6px;
+      text-align: center;
+      font-weight: 600;
     }
 
-    .empty-box {
-      height: 50px;
-      margin: 5px 0;
-      background: #eee;
-      border-radius: 5px;
+    .section-column {
+      margin-top: 12px;
+    }
+
+    .vertical-box {
+      background: #f2f2f2;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      transition: transform .12s ease, box-shadow .12s ease;
+      overflow: hidden;
+    }
+
+    .vertical-box:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    .box-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #222;
+    }
+
+    .box-desc {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.3;
+    }
+
+    a.link {
+      color: blue;
+      text-decoration: underline;
+      transition: color 0.2s ease;
+    }
+
+    a.link:hover {
+      color: #d90000;
+    }
+
+    .view-all-btn {
+      display: inline-block;
+      background: #b9003a;
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-top: 5px;
+      font-size: 14px;
+      transition: background 0.2s ease;
+    }
+
+    .view-all-btn:hover {
+      background: #8b002d;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    @media (max-width: 767px) {
+      .vertical-box { height: auto; }
+      .top-left { left: 12px; font-size: 16px; }
+      .top-left .logo-circle { width:40px; height:40px; margin-right:8px; }
     }
   </style>
 </head>
@@ -73,8 +136,8 @@
       </div>
       Mahesh Rabadka
     </div>
-    <h2>MRRESULT</h2>
-    <div>www.mrresult.com</div>
+    <h2 style="margin:0; font-size:42px; letter-spacing:2px;">MRRESULT</h2>
+    <div style="font-size:14px; margin-top:6px;">www.mrresult.com</div>
   </div>
 
   <nav class="navbar navbar-expand navbar-dark" style="background: #780622;">
@@ -87,20 +150,8 @@
   </nav>
 
   <div class="container mt-4">
-    <div class="row text-center">
-      <!-- 8 Empty Boxes -->
-      <div class="col-3 empty-box"></div>
-      <div class="col-3 empty-box"></div>
-      <div class="col-3 empty-box"></div>
-      <div class="col-3 empty-box"></div>
-    </div>
-    <div class="row text-center">
-      <div class="col-3 empty-box"></div>
-      <div class="col-3 empty-box"></div>
-      <div class="col-3 empty-box"></div>
-      <div class="col-3 empty-box"></div>
-    </div>
 
+    <!-- Section titles -->
     <div class="row mt-4">
       <div class="col-md-4">
         <div class="section-title">Results</div>
@@ -112,6 +163,70 @@
         <div class="section-title">Latest Jobs</div>
       </div>
     </div>
+
+    <!-- Three Columns -->
+    <div class="row mt-3">
+      <!-- Results Column -->
+      <div class="col-md-4 section-column">
+        <div class="vertical-box">
+          <div class="box-title">Rajasthan Police Constable Result 2025 Out – 
+            <a href="https://www.police.rajasthan.gov.in/" target="_blank" class="link">Click Here</a>
+          </div>
+          <div class="box-desc">Check official website for result PDF, cutoff and merit list.</div>
+        </div>
+
+        <div class="vertical-box">
+          <div class="box-title">SSC GD Constable Result 2025 Out – 
+            <a href="https://ssc.gov.in/" target="_blank" class="link">Click Here</a>
+          </div>
+          <div class="box-desc">Declared officially by Staff Selection Commission.</div>
+        </div>
+
+        <a href="#" class="view-all-btn">View All Results</a>
+      </div>
+
+      <!-- Admit Card Column -->
+      <div class="col-md-4 section-column">
+        <div class="vertical-box">
+          <div class="box-title">Rajasthan Police Admit Card 2025 – 
+            <a href="https://www.police.rajasthan.gov.in/" target="_blank" class="link">Download Here</a>
+          </div>
+          <div class="box-desc">Admit cards for PET/PMT available now.</div>
+        </div>
+
+        <div class="vertical-box">
+          <div class="box-title">SSC CHSL Admit Card 2025 – 
+            <a href="https://ssc.gov.in/" target="_blank" class="link">Download Here</a>
+          </div>
+          <div class="box-desc">Available 7 days before the exam date.</div>
+        </div>
+
+        <a href="#" class="view-all-btn">View All Admit Cards</a>
+      </div>
+
+      <!-- Latest Jobs Column -->
+      <div class="col-md-4 section-column">
+        <div class="vertical-box">
+          <div class="box-title">Rajasthan High Court LDC Vacancy 2025 – 
+            <a href="https://hcraj.nic.in/hcraj/" target="_blank" class="link">Apply Now</a>
+          </div>
+          <div class="box-desc">Online applications open. Apply before last date.</div>
+        </div>
+
+        <div class="vertical-box">
+          <div class="box-title">Indian Army Agniveer Recruitment 2025 – 
+            <a href="https://joinindianarmy.nic.in/" target="_blank" class="link">Apply Now</a>
+          </div>
+          <div class="box-desc">Check eligibility criteria and apply online.</div>
+        </div>
+
+        <a href="#" class="view-all-btn">View All Jobs</a>
+      </div>
+    </div>
   </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
