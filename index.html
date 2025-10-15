@@ -1,132 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <title>MRRESULT</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
   <style>
-    body { margin: 0; background: #fff; font-family: Arial,sans-serif; }
+    body { background:#fff; }
+
     .header {
       background: #a41f3a;
       color: #fff;
+      padding: 18px 0;
       text-align: center;
-      padding: 18px 0 8px 0;
-      font-size: 22px;
+      position: relative;
+      font-family: Arial, sans-serif;
       font-weight: bold;
-      letter-spacing: 1px;
     }
-    .top-bar {
-      background: #2c3242;
-      color: #fff;
+
+    .top-left {
+      position: absolute;
+      left: 20px;
+      top: 12px;
       display: flex;
       align-items: center;
-      padding: 9px 10px;
-      font-size: 17px;
-      font-weight: 500;
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
     }
-    .menu-btn { background:none; border:none; color:#fff; font-size:22px; margin-right:15px; }
-    .top-bar .search { margin-left:auto; color:#fff; background:none; border:none; font-size:19px;}
-    .nav {
-      background: #0e344a;
-      padding: 0;
+
+    .top-left .logo-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: #000;
       display: flex;
+      align-items: center;
       justify-content: center;
-      flex-wrap:wrap;
+      overflow: hidden;
+      border: 2px solid white;
+      margin-right: 12px;
     }
-    .nav a {
-      color: #fff !important;
-      padding: 10px 18px;
-      font-weight: 500;
+
+    .top-left .logo-circle img {
+      width: 90%;
+      height: 90%;
+      object-fit: contain;
       display: block;
-      text-decoration: none;
+    }
+
+    .nav-link {
+      color: #fff !important;
+    }
+
+    .section-title {
+      background: #b9003a;
+      color: #fff;
+      padding: 14px;
+      margin-top: 20px;
+      border-radius: 6px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .section-column {
+      margin-top: 12px;
+    }
+
+    .vertical-box {
+      background: #f2f2f2;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      transition: transform .12s ease, box-shadow .12s ease;
+      overflow: hidden;
+    }
+
+    .vertical-box:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    .box-title {
       font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #222;
     }
-    .nav a:hover { background: #2b5773; }
-    .channel-btns {
-      display:flex; justify-content:center; gap:12px; margin:24px 0 14px 0;
+
+    .box-desc {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.3;
     }
-    .channel-btns a {
-      padding:13px 23px;
-      border-radius:9px;
-      font-weight:700;
-      font-size:17px;
-      color:#fff;
-      display:inline-block;
-      text-decoration:none;
-      box-shadow: 0 2px 7px #ddd;
+
+    a.link {
+      color: blue;
+      text-decoration: underline;
+      transition: color 0.2s ease;
     }
-    .wa-btn { background:#18bb2c; }
-    .tg-btn { background:#0f88ef; }
-    .info-blocks {
-      margin:30px auto 0 auto; max-width:380px; display:flex; flex-wrap:wrap; gap:14px; justify-content:center;
+
+    a.link:hover {
+      color: #d90000;
     }
-    .info-block {
-      min-width:140px; flex:1;
-      border-radius:15px;
-      color:#fff;
-      text-align:center;
-      font-size:15px;
-      font-weight:600;
-      padding:15px 10px;
-      box-shadow:0 1px 7px rgba(0,0,0,.11);
-      cursor:pointer;
-      transition: transform .11s;
+
+    .view-all-btn {
+      display: inline-block;
+      background: #b9003a;
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-top: 5px;
+      font-size: 14px;
+      transition: background 0.2s ease;
+    }
+
+    .view-all-btn:hover {
+      background: #8b002d;
       text-decoration: none;
+      color: #fff;
     }
-    .info1 { background:#e950cb; }
-    .info2 { background:#484ff9; }
-    .info3 { background:#b2000e; }
-    .info4 { background:#ef7c12; }
-    .info5 { background:#b56700; }
-    .info6 { background:#22b900; color:#fff;}
-    .live-banner {
-      background:#fff9e7; color:#a41f3a; font-weight:600;
-      padding:10px; border-radius:8px;
-      text-align:center; margin: 20px auto 0 auto;
-      max-width:390px; box-shadow: 0 1px 4px #eee;
-      font-size:15px;
-      border:1px solid #ffe186;
-    }
-    @media(max-width: 500px) {
-      .header { font-size: 19px; padding:10px 0; }
-      .nav a { padding: 9px 11px; font-size:14px;}
-      .info-blocks { max-width:98vw;gap:8px;}
-      .info-block { padding:12px 5px; font-size:14px;}
-      .channel-btns a { font-size:15px; padding:10px 8px;}
+
+    @media (max-width: 767px) {
+      .vertical-box { height: auto; }
+      .top-left { left: 12px; font-size: 16px; }
+      .top-left .logo-circle { width:40px; height:40px; margin-right:8px; }
     }
   </style>
 </head>
 <body>
-
-  <div class="header">mrresult.com.im</div>
-  <div class="top-bar">
-    <button class="menu-btn">&#9776; Menu</button>
-    <span>Result</span>
-    <span style="margin-left:18px;">Latest Jobs</span>
-    <span style="margin-left:18px;">Admit Card</span>
-    <span style="margin-left:18px;">Answer Key</span>
-    <button class="search" aria-label="search">&#128269;</button>
+  <div class="header">
+    <div class="top-left">
+      <div class="logo-circle">
+        <img src="tiger.png" alt="Logo" />
+      </div>
+      Mahesh Rabadka
+    </div>
+    <h2 style="margin:0; font-size:42px; letter-spacing:2px;">MRRESULT</h2>
+    <div style="font-size:14px; margin-top:6px;">www.mrresult.com</div>
   </div>
 
-  <div class="nav">
-    <a href="#">Result</a>
-    <a href="#">Latest Jobs</a>
-    <a href="#">Admit Card</a>
-    <a href="#">Answer Key</a>
-  </div>
+  <nav class="navbar navbar-expand navbar-dark" style="background: #780622;">
+    <a class="navbar-brand" href="#">Home</a>
+    <a class="nav-link" href="#">Syllabus</a>
+    <a class="nav-link" href="#">Admit Card</a>
+    <a class="nav-link" href="#">Result</a>
+    <a class="nav-link" href="#">Job</a>
+    <a class="nav-link" href="#">Contact</a>
+  </nav>
 
-  <div class="channel-btns">
-    <a class="wa-btn" href="#">Join WhatsApp Channel</a>
-    <a class="tg-btn" href="#">Join Telegram Channel</a>
-  </div>
+  <div class="container mt-4">
 
-  <div class="live-banner">
-    &#128308; Welcome To MRRESULT ,  Job,<br>(MRRESULT.COM.IM)
-  </div>
+    <!-- Section titles -->
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <div class="section-title">Results</div>
+      </div>
+      <div class="col-md-4">
+        <div class="section-title">Admit Card</div>
+      </div>
+      <div class="col-md-4">
+        <div class="section-title">Latest Jobs</div>
+      </div>
+    </div>
 
-  <div class="info-blocks">
+    <!-- Three Columns -->
+    <div class="row mt-3">
+      <!-- Results Column -->
+      <div class="col-md-4 section-column">
+        <div class="vertical-box">
+          <div class="box-title">Rajasthan Police Constable Result 2025 Out – 
+            <a href="https://www.police.rajasthan.gov.in/" target="_blank" class="link">Click Here</a>
+          </div>
+          <div class="box-desc">Check official website for result PDF, cutoff and merit list.</div>
+        </div>
 
-    <a class="info-block info1" href="#"><div class="vertical-box">
+        <div class="vertical-box">
+          <div class="box-title">SSC GD Constable Result 2025 Out – 
+            <a href="https://ssc.gov.in/" target="_blank" class="link">Click Here</a>
+          </div>
+          <div class="box-desc">Declared officially by Staff Selection Commission.</div>
+        </div>
+
+        <a href="#" class="view-all-btn">View All Results</a>
+      </div>
+
+      <!-- Admit Card Column -->
+      <div class="col-md-4 section-column">
+        <div class="vertical-box">
+          <div class="box-title">Rajasthan Police Admit Card 2025 – 
+            <a href="https://www.police.rajasthan.gov.in/" target="_blank" class="link">Download Here</a>
+          </div>
+          <div class="box-desc">Admit cards for PET/PMT available now.</div>
+        </div>
+
+        
+<script>
+function toggleJobInfo(id){
+  var x = document.getElementById(id);
+  if(x.style.display === "none"){ x.style.display = "block"; }
+  else{ x.style.display = "none"; }
+}
+</script>
+
+        <a href="#" class="view-all-btn">View All Admit Cards</a>
+      </div>
+
+      <!-- Latest Jobs Column -->
+      <div class="col-md-4 section-column">
+        <div class="vertical-box">
+          <div class="box-title">Rajasthan High Court LDC Vacancy 2025 – 
+            <a href="https://hcraj.nic.in/hcraj/" target="_blank" class="link">Apply Now</a>
+          </div>
+          <div class="box-desc">Online applications open. Apply before last date.</div>
+        </div> 
+<div class="vertical-box">
   <p><b>Delhi Police Constable Recruitment 2025 –</b> 
     <a href="javascript:void(0);" onclick="toggleJobInfo('delhiJob')" style="color: blue; text-decoration: underline;">Click Here</a>
   </p>
@@ -136,7 +224,7 @@
     <p><b>Form Fee:</b> ₹100</p>
     <p><b>Education Qualification:</b> 12th Pass</p>
     <p><b>Apply Link:</b> 
-      <a href="https://delhipolice.nic.in/" target="_blank" style="color: blue; text-decoration: underline;">Apply Online</a>
+      <a href="https://ssc.gov.in/" target="_blank" style="color: blue; text-decoration: underline;">Apply Online</a>
     </p>
   </div>
 </div>
@@ -150,52 +238,42 @@ function toggleJobInfo(id){
 </script>
 
 
-    <a class="info-block info2" href="#">
 
 
-    <a class="info-block info3" href="#">
+        
 
-
-    <a class="info-block info4" href="#">
-
-
-    <a class="info-block info5" href="#">
-
-
-    <a class="info-block info6" href="#">
-<div style="max-width:500px; margin:30px auto; padding:0 10px;">
-  <!-- Vertically stacked rectangles -->
-  <div style="background:#fdebed; border-radius:14px; box-shadow:0 2px 7px #eee; padding:18px; margin-bottom:18px;">
-    <div style="font-weight:700; font-size:20px; color:#a41f3a; margin-bottom:14px; text-align:center;">Result</div>
-    <ul style="list-style:none; padding:0; margin:0 0 10px 0;">
-      <li>Rajasthan Police Constable Result 2025</li>
-      <li>SSC GD Constable Result 2025</li>
-      <li>RRB NTPC CBT 2 Result 2025</li>
-    </ul>
-    <a href="#" style="display:block; text-align:center; background:#a41f3a; color:#fff; padding:9px 0; border-radius:12px; text-decoration:none;">View All Results</a>
+        <a href="#" class="view-all-btn">View All Jobs</a>
+      </div>
+    </div>
   </div>
 
-  <div style="background:#e7f1ff; border-radius:14px; box-shadow:0 2px 7px #eee; padding:18px; margin-bottom:18px;">
-    <div style="font-weight:700; font-size:20px; color:#1764c4; margin-bottom:14px; text-align:center;">Admit Card</div>
-    <ul style="list-style:none; padding:0; margin:0 0 10px 0;">
-      <li>Rajasthan Police Admit Card 2025</li>
-      <li>SSC CHSL Admit Card 2025</li>
-      <li>JEE Main Admit Card 2025</li>
-    </ul>
-    <a href="#" style="display:block; text-align:center; background:#1764c4; color:#fff; padding:9px 0; border-radius:12px; text-decoration:none;">View All Admit Cards</a>
-  </div>
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Footer -->
+<footer style="background:#111; color:#ccc; text-align:center; padding:25px 10px; margin-top:40px; font-size:14px;">
+  <p>© 2025 Mahesh Rabadka | Email: 
+    <a href="mailto:maheshrabarka2005@gmail.com" style="color:#ff3366; text-decoration:none; font-weight:bold;">maheshrabarka2005@gmail.com</a>
+  </p>
+  <button onclick="openFeedback()" style="margin-top:10px; background:#b9003a; color:#fff; border:none; padding:8px 14px; border-radius:6px;">💬 Give Feedback</button>
+</footer>
 
-  <div style="background:#eaffeb; border-radius:14px; box-shadow:0 2px 7px #eee; padding:18px;">
-    <div style="font-weight:700; font-size:20px; color:#16a850; margin-bottom:14px; text-align:center;">Latest Jobs</div>
-    <ul style="list-style:none; padding:0; margin:0 0 10px 0;">
-      <li>Rajasthan High Court LDC Vacancy 2025</li>
-      <li>Delhi Police Constable Recruitment 2025</li>
-      <li>SSC CPO SI Recruitment 2025</li>
-    </ul>
-    <a href="#" style="display:block; text-align:center; background:#16a850; color:#fff; padding:9px 0; border-radius:12px; text-decoration:none;">View All Jobs</a>
-  </div> 
+<!-- Feedback Form -->
+<div id="feedbackForm" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:#fff; padding:20px; box-shadow:0 6px 20px rgba(0,0,0,0.3); border-radius:8px; z-index:1000; width:90%; max-width:400px;">
+  <h5>Send Feedback</h5>
+  <input type="text" placeholder="Your Name" style="width:100%; padding:8px; margin-top:8px; border-radius:6px; border:1px solid #ccc;">
+  <textarea rows="3" placeholder="Your Feedback" style="width:100%; padding:8px; margin-top:8px; border-radius:6px; border:1px solid #ccc;"></textarea>
+  <button onclick="closeFeedback()" style="margin-top:10px; background:#b9003a; color:white; border:none; padding:8px 14px; border-radius:6px;">Submit</button>
+</div>
 
-
-  </div>
+<script>
+  function openFeedback() {
+    document.getElementById("feedbackForm").style.display = "block";
+  }
+  function closeFeedback() {
+    alert("Thank you for your feedback!");
+    document.getElementById("feedbackForm").style.display = "none";
+  }
+</script>
 </body>
 </html>
