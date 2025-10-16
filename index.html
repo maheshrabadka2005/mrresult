@@ -1,178 +1,241 @@
-‎<!DOCTYPE html>
-‎<html lang="en">
-‎<head>
-‎  <meta charset="UTF-8"/>
-‎  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-‎  <title>MRRESULT</title>
-‎  <style>
-‎    body { margin:0; background:#fff; font-family:Arial, sans-serif; }
-‎
-‎    /* HEADER */
-‎    .header {
-‎      background:#a41f3a;
-‎      color:#fff;
-‎      padding:18px 0;
-‎      text-align:center;
-‎      position:relative;
-‎      font-weight:bold;
-‎    }
-‎    .top-left {
-‎      position:absolute;
-‎      left:20px;
-‎      top:12px;
-‎      display:flex;
-‎      align-items:center;
-‎      font-size:18px;
-‎      color:#fff;
-‎    }
-‎    .top-left .logo-circle {
-‎      width:48px; height:48px; border-radius:50%;
-‎      background:#000; display:flex; align-items:center;
-‎      justify-content:center; overflow:hidden; border:2px solid white;
-‎      margin-right:10px;
-‎    }
-‎    .top-left .logo-circle img {
-‎      width:90%; height:90%; object-fit:contain;
-‎    }
-‎
-‎    /* NAVBAR */
-‎    nav {
-‎      background:#780622;
-‎      display:flex;
-‎      justify-content:center;
-‎      flex-wrap:wrap;
-‎    }
-‎    nav a {
-‎      color:#fff;
-‎      text-decoration:none;
-‎      padding:10px 15px;
-‎      font-weight:500;
-‎      font-size:16px;
-‎    }
-‎    nav a:hover { background:#9b0830; }
-‎
-‎    /* 6 COLOR BOXES */
-‎    .info-blocks {
-‎      margin:25px auto 0;
-‎      display:grid;
-‎      grid-template-columns: repeat(3, 1fr);
-‎      gap:14px;
-‎      max-width:800px;
-‎      padding:0 10px;
-‎    }
-‎    .info-block {
-‎      border-radius:15px;
-‎      color:#fff;
-‎      text-align:center;
-‎      height:80px;
-‎      box-shadow:0 1px 7px rgba(0,0,0,.11);
-‎      transition:transform .11s;
-‎    }
-‎    .info1 { background:#e950cb; }
-‎    .info2 { background:#484ff9; }
-‎    .info3 { background:#b2000e; }
-‎    .info4 { background:#ef7c12; }
-‎    .info5 { background:#b56700; }
-‎    .info6 { background:#22b900; }
-‎    .info-block:hover { transform:scale(1.05); }
-‎
-‎    /* 4 VERTICAL BOXES (Result, Admit Card, Jobs, Answer Key) */
-‎    .sections {
-‎      display:flex;
-‎      flex-wrap:wrap;
-‎      justify-content:center;
-‎      gap:18px;
-‎      max-width:1100px;
-‎      margin:40px auto;
-‎      padding:0 10px;
-‎    }
-‎    .section {
-‎      flex:1 1 240px;
-‎      background:#f2f2f2;
-‎      border-radius:10px;
-‎      padding:15px;
-‎      box-shadow:0 2px 7px rgba(0,0,0,0.08);
-‎      min-height:120px;
-‎      transition:transform .12s;
-‎    }
-‎    .section:hover { transform:translateY(-4px); }
-‎    .section-title {
-‎      background:#b9003a;
-‎      color:#fff;
-‎      padding:10px;
-‎      border-radius:6px;
-‎      text-align:center;
-‎      font-weight:600;
-‎      margin-bottom:10px;
-‎    }
-‎
-‎    /* RESPONSIVE */
-‎    @media(max-width:600px){
-‎      .info-blocks {
-‎        grid-template-columns: repeat(3, 1fr);
-‎        gap:10px;
-‎      }
-‎      .info-block { height:70px; }
-‎      .section { flex:1 1 100%; }
-‎      .header h2 { font-size:28px; }
-‎    }
-‎  </style>
-‎</head>
-‎<body>
-‎  <div class="header">
-‎    <div class="top-left">
-‎      <div class="logo-circle">
-‎        <img src="tiger.png" alt="Logo" />
-‎      </div>
-‎    
-‎    </div>
-‎    <h2 style="margin:0; font-size:42px; letter-spacing:2px;">MRRESULT</h2>
-‎    <div style="font-size:14px; margin-top:6px;">www.mrresult.com</div>
-‎  </div>
-‎
-‎  <nav>
-‎    <a href="#">Home</a>
-‎    <a href="#">Syllabus</a>
-‎    <a href="#">Admit Card</a>
-‎    <a href="#">Result</a>
-‎    <a href="#">Job</a>
-‎    <a href="#">Contact</a>
-‎  </nav>
-‎
-‎  <!-- 6 COLOR BOXES -->
-‎  <div class="info-blocks">
-‎    <div class="info-block info1"></div>
-‎    <div class="info-block info2"></div>
-‎    <div class="info-block info3"></div>
-‎    <div class="info-block info4"></div>
-‎    <div class="info-block info5"></div>
-‎    <div class="info-block info6"></div>
-‎  </div>
-‎
-‎  <!-- 4 VERTICAL RECTANGLE BOXES -->
-‎  <div class="sections">
-‎    <div class="section">
-‎      <div class="section-title">Results</div>
-‎    </div>
-‎    <div class="section">
-‎      <div class="section-title">Admit Card</div>
-‎    </div>
-‎    <div class="section">
-‎      <div class="section-title">Latest Jobs</div>
-‎    </div>
-‎    <div class="section">
-‎      <div class="section-title">Answer Key</div>
-‎    </div>
-‎  </div>
-‎<!-- Footer -->
-‎<footer style="background:#111; color:#ccc; text-align:center; padding:25px 10px; font-size:14px;">
-‎  <p style="margin:5px 0;">© 2025 Mahesh Rabadka | Email: 
-‎    <a href="mailto:maheshrabarka2005@gmail.com" style="color:#ff3366; text-decoration:none; font-weight:bold;">maheshrabarka2005@gmail.com</a>
-‎  </p>
-‎  <button onclick="openFeedback()" style="margin:10px auto 0 auto; display:block; background:#b9003a; color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer;">
-‎    💬 Give Feedback
-‎  </button>
-‎</footer>
-‎
-‎<!-- Feedback Form -->
-‎<div id="feedbackForm" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:#fff; padding:20px; box-shadow:0 6px 20px rg
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MRRESULT</title>
+  <style>
+    body { margin:0; background:#fff; font-family:Arial, sans-serif; }
+
+    /* HEADER */
+    .header {
+      background:#a41f3a;
+      color:#fff;
+      padding:18px 0;
+      text-align:center;
+      position:relative;
+      font-weight:bold;
+    }
+    .top-left {
+      position:absolute;
+      left:20px;
+      top:12px;
+      display:flex;
+      align-items:center;
+      font-size:18px;
+      color:#fff;
+    }
+    .top-left .logo-circle {
+      width:48px; height:48px; border-radius:50%;
+      background:#000; display:flex; align-items:center;
+      justify-content:center; overflow:hidden; border:2px solid white;
+      margin-right:10px;
+    }
+    .top-left .logo-circle img {
+      width:90%; height:90%; object-fit:contain;
+    }
+
+    /* NAVBAR */
+    nav {
+      background:#780622;
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    nav a {
+      color:#fff;
+      text-decoration:none;
+      padding:10px 15px;
+      font-weight:500;
+      font-size:16px;
+    }
+    nav a:hover { background:#9b0830; }
+
+    /* 6 COLOR BOXES */
+    .info-blocks {
+      margin:25px auto 0;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+      max-width:800px;
+      padding:0 10px;
+    }
+    .info-block {
+      border-radius:15px;
+      color:#fff;
+      text-align:center;
+      height:80px;
+      box-shadow:0 1px 7px rgba(0,0,0,.11);
+      transition:transform .11s;
+    }
+    .info1 { background:#e950cb; }
+    .info2 { background:#484ff9; }
+    .info3 { background:#b2000e; }
+    .info4 { background:#ef7c12; }
+    .info5 { background:#b56700; }
+    .info6 { background:#22b900; }
+    .info-block:hover { transform:scale(1.05); }
+
+    /* 4 VERTICAL BOXES (Result, Admit Card, Jobs, Answer Key) */
+    .sections {
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:18px;
+      max-width:1100px;
+      margin:40px auto;
+      padding:0 10px;
+    }
+    .section {
+      flex:1 1 240px;
+      background:#f2f2f2;
+      border-radius:10px;
+      padding:15px;
+      box-shadow:0 2px 7px rgba(0,0,0,0.08);
+      min-height:120px;
+      transition:transform .12s;
+    }
+    .section:hover { transform:translateY(-4px); }
+    .section-title {
+      background:#b9003a;
+      color:#fff;
+      padding:10px;
+      border-radius:6px;
+      text-align:center;
+      font-weight:600;
+      margin-bottom:10px;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:600px){
+      .info-blocks {
+        grid-template-columns: repeat(3, 1fr);
+        gap:10px;
+      }
+      .info-block { height:70px; }
+      .section { flex:1 1 100%; }
+      .header h2 { font-size:28px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="top-left">
+      <div class="logo-circle">
+        <img src="tiger.png" alt="Logo" />
+      </div>
+    
+    </div>
+    <h2 style="margin:0; font-size:42px; letter-spacing:2px;">MRRESULT</h2>
+    <div style="font-size:14px; margin-top:6px;">www.mrresult.com</div>
+  </div>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Syllabus</a>
+    <a href="#">Admit Card</a>
+    <a href="#">Result</a>
+    <a href="#">Job</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <!-- 6 COLOR BOXES -->
+  <div class="info-blocks">
+    <div class="info-block info1"></div>
+    <div class="info-block info2"></div>
+    <div class="info-block info3"></div>
+    <div class="info-block info4"></div>
+    <div class="info-block info5"></div>
+    <div class="info-block info6"></div>
+  </div>
+
+  <!-- 4 VERTICAL RECTANGLE BOXES -->
+  <div class="sections">
+    <div class="section">
+      <div class="section-title">Results</div>
+    </div>
+    <div class="section">
+      <div class="section-title">Admit Card</div>
+    </div>
+    <div class="section">
+      <div class="section-title">Latest Jobs</div>
+    </div>
+    <div class="section">
+      <div class="section-title">Answer Key</div>
+    </div>
+  </div>
+<!-- Footer -->
+<footer style="background:#111; color:#ccc; text-align:center; padding:25px 10px; font-size:14px;">
+  <p style="margin:5px 0;">© 2025 Mahesh Rabadka | Email: 
+    <a href="mailto:maheshrabarka2005@gmail.com" style="color:#ff3366; text-decoration:none; font-weight:bold;">maheshrabarka2005@gmail.com</a>
+  </p>
+  <button onclick="openFeedback()" style="margin:10px auto 0 auto; display:block; background:#b9003a; color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer;">
+    💬 Give Feedback
+  </button>
+</footer>
+
+<!-- Feedback Form -->
+<div id="feedbackForm" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:#fff; padding:20px; box-shadow:0 6px 20px rgba(0,0,0,0.3); border-radius:8px; z-index:1000; width:90%; max-width:400px;">
+  <div style="display:flex; justify-content:flex-end;">
+    <button onclick="closeFeedback()" style="background:none; border:none; font-size:20px; cursor:pointer;">&times;</button>
+  </div>
+  <h5 style="margin-bottom:10px; text-align:center;">Send Feedback</h5>
+  <input type="text" placeholder="Your Name" style="width:100%; padding:8px; margin-top:8px; border-radius:6px; border:1px solid #ccc;">
+  <textarea rows="3" placeholder="Your Feedback" style="width:100%; padding:8px; margin-top:8px; border-radius:6px; border:1px solid #ccc;"></textarea>
+  <button onclick="submitFeedback()" style="margin-top:10px; background:#b9003a; color:white; border:none; padding:8px 14px; border-radius:6px; cursor:pointer; width:100%;">Submit</button>
+</div>
+
+<script>
+  function openFeedback() {
+    document.getElementById("feedbackForm").style.display = "block";
+  }
+  function closeFeedback() {
+    document.getElementById("feedbackForm").style.display = "none";
+  }
+  function submitFeedback() {
+    alert("Thank you for your feedback!");
+    closeFeedback();
+  }
+</script>
+
+<style>
+/* Responsive adjustments for mobile */
+@media(max-width:600px){
+  footer { padding:20px 10px; font-size:13px; }
+  footer button { width:80%; padding:8px; font-size:14px; }
+  #feedbackForm { width:90%; padding:15px; }
+  #feedbackForm input, #feedbackForm textarea { font-size:14px; }
+  #feedbackForm button { width:100%; padding:8px; font-size:14px; }
+}
+</style>
+</body>
+<!-- WhatsApp Pop-up Icon -->
+<style>
+  /* Pop-up container */
+  #whatsapp-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    cursor: pointer;
+    animation: blink 1s infinite;
+  }
+
+  /* Blinking animation */
+  @keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.2; }
+    100% { opacity: 1; }
+  }
+
+  /* Icon styling */
+  #whatsapp-popup img {
+    width: 60px;
+    height: 60px;
+  }
+</style>
+
+<a href="https://whatsapp.com/channel/0029VbBcQBmA2pLGkcmu2Y0O" target="_blank" id="whatsapp-popup">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Join WhatsApp" />
+</a>
+</html>
