@@ -142,6 +142,75 @@
   <!-- 6 COLOR BOXES -->
   <div class="info-blocks">
     <div class="info-block info1"></div>
+<style>
+  .boxes { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; }
+  .box {
+    flex:1 1 calc(33.333% - 12px);
+    min-width:160px;
+    padding:18px;
+    border-radius:8px;
+    color:#fff;
+    text-align:center;
+    font-weight:bold;
+    cursor:pointer;
+    transition:transform .2s;
+  }
+  .box:hover { transform:scale(1.05); }
+  .c1 { background:#ff595e; }
+  .c2 { background:#ff924c; }
+  .c3 { background:#ffca3a; color:#222; }
+  .c4 { background:#8ac926; }
+  .c5 { background:#1982c4; }
+  .c6 { background:#6a4c93; }
+  @media(max-width:768px){ .box{flex:1 1 calc(50% - 12px);} }
+  @media(max-width:420px){ .box{flex:1 1 100%;} }
+</style>
+
+<div class="boxes">
+  <div class="box c1" id="sscBox">SSC Recruitment 2025</div>
+  <div class="box c2">RRB Railway 2025</div>
+  <div class="box c3">RPSC Exam 2025</div>
+  <div class="box c4">Rajasthan Police</div>
+  <div class="box c5">Indian Army 2025</div>
+  <div class="box c6">SSC GD Constable</div>
+</div>
+
+<script>
+  document.getElementById("sscBox").addEventListener("click", function() {
+    const win = window.open("", "_blank");
+    const html = `
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <title>SSC Recruitment 2025</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <style>
+          body { font-family: Arial, sans-serif; background: #f5f6fa; margin: 0; padding: 20px; color: #111; }
+          .card { background: #fff; max-width: 600px; margin: 40px auto; padding: 25px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+          h1 { font-size: 22px; margin-bottom: 15px; color: #003566; }
+          .info p { margin: 8px 0; font-size: 15px; }
+          .apply-btn { display: inline-block; background: #007bff; color: #fff; padding: 10px 18px; border-radius: 6px; text-decoration: none; font-weight: bold; margin-top: 15px; }
+          .apply-btn:hover { background: #0056b3; }
+        </style>
+      </head>
+      <body>
+        <div class="card">
+          <h1>SSC Recruitment 2025</h1>
+          <div class="info">
+            <p><strong>Form Start:</strong> 21 September 2025</p>
+            <p><strong>Last Date:</strong> 23 October 2025</p>
+            <p><strong>Total Post:</strong> 7565</p>
+            <p><strong>Application Fee:</strong> ₹100 (Gen/OBC/SC/ST)</p>
+          </div>
+          <a href="https://ssc.gov.in" class="apply-btn" target="_blank">Apply Now</a>
+        </div>
+      </body>
+      </html>`;
+    win.document.write(html);
+    win.document.close();
+  });
+</script>
     <div class="info-block info2"></div>
     <div class="info-block info3"></div>
     <div class="info-block info4"></div>
