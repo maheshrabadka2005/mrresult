@@ -1,293 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MRRESULT</title>
 <style>
-  html { scroll-behavior: smooth; }
-  body { margin:0; background:#fff; font-family:Arial, sans-serif; }
+html { scroll-behavior: smooth; }
+body { margin:0; background:#fff; font-family:Arial, sans-serif; }
 
-  /* HEADER */
-  .header {
-    background:#a41f3a;
-    color:#fff;
-    padding:18px 0;
-    text-align:center;
-    position:relative;
-    font-weight:bold;
-  }
-  .top-left {
-    position:absolute;
-    left:20px;
-    top:12px;
-    display:flex;
-    align-items:center;
-    font-size:18px;
-    color:#fff;
-  }
-  .top-left .logo-circle {
-    width:48px; height:48px; border-radius:50%;
-    background:#000; display:flex; align-items:center;
-    justify-content:center; overflow:hidden; border:2px solid white;
-    margin-right:10px; font-size:9px; font-weight:bold; text-align:center; line-height:1.1;
-  }
+.header {
+  background:#a41f3a;
+  color:#fff;
+  padding:18px 0;
+  text-align:center;
+  position:relative;
+  font-weight:bold;
+}
+.top-left {
+  position:absolute;
+  left:10px;
+  top:12px;
+  display:flex;
+  align-items:center;
+  font-size:14px;
+  color:#fff;
+}
+.top-left .logo-circle {
+  width:48px; height:48px; border-radius:50%;
+  background:#000; display:flex; align-items:center;
+  justify-content:center; overflow:hidden; border:2px solid white;
+  margin-right:10px; font-size:9px; font-weight:bold; text-align:center; line-height:1.1;
+}
 
-  /* NAVBAR */
-  nav {
-    background:#780622;
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-  }
-  nav a {
-    color:#fff;
-    text-decoration:none;
-    padding:10px 15px;
-    font-weight:500;
-    font-size:16px;
-  }
-  nav a:hover { background:#9b0830; }
+/* NAVBAR */
+nav {
+  background:#780622;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+nav a {
+  color:#fff;
+  text-decoration:none;
+  padding:10px 15px;
+  font-weight:500;
+  font-size:16px;
+}
+nav a:hover { background:#9b0830; }
 
-  /* 6 COLOR BOXES */
-  .info-blocks {
-    margin:25px auto 0;
-    display:grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap:14px;
-    max-width:800px;
-    padding:0 10px;
-  }
-  .info-block {
-    border-radius:15px;
-    color:#fff;
-    text-align:center;
-    height:80px;
-    box-shadow:0 1px 7px rgba(0,0,0,.11);
-    transition:transform .11s;
-  }
-  .info1 { background:#e950cb; }
-  .info2 { background:#484ff9; }
-  .info3 { background:#b2000e; }
-  .info4 { background:#ef7c12; }
-  .info5 { background:#b56700; }
-  .info6 { background:#22b900; }
-  .info-block:hover { transform:scale(1.05); }
+/* 6 COLOR BOXES */
+.info-blocks {
+  margin:20px auto;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap:12px;
+  max-width:900px;
+  padding:0 10px;
+}
+.info-block {
+  border-radius:12px;
+  color:#fff;
+  text-align:center;
+  padding:10px;
+  box-shadow:0 1px 7px rgba(0,0,0,.11);
+  transition:transform .11s;
+}
+.info-block:hover { transform:scale(1.05); }
+.info1 { background:#e950cb; }
+.info2 { background:#484ff9; }
+.info3 { background:#b2000e; }
+.info4 { background:#ef7c12; }
+.info5 { background:#b56700; }
+.info6 { background:#22b900; }
 
-  /* 4 VERTICAL BOXES (Result, Admit Card, Jobs, Answer Key) */
-  .sections {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:18px;
-    max-width:1100px;
-    margin:40px auto;
-    padding:0 10px;
-  }
-  .section {
-    flex:1 1 240px;
-    background:#f2f2f2;
-    border-radius:10px;
-    padding:15px;
-    box-shadow:0 2px 7px rgba(0,0,0,0.08);
-    min-height:120px;
-    transition:transform .12s;
-  }
-  .section:hover { transform:translateY(-4px); }
-  .section-title {
-    background:#b9003a;
-    color:#fff;
-    padding:10px;
-    border-radius:6px;
-    text-align:center;
-    font-weight:600;
-    margin-bottom:10px;
-  }
+/* SECTIONS */
+.sections {
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  max-width:1100px;
+  margin:30px auto;
+  padding:0 10px;
+}
+.section {
+  background:#f2f2f2;
+  border-radius:10px;
+  padding:15px;
+  box-shadow:0 2px 7px rgba(0,0,0,0.08);
+  transition:transform .12s;
+}
+.section:hover { transform:translateY(-4px); }
+.section-title {
+  background:#b9003a;
+  color:#fff;
+  padding:10px;
+  border-radius:6px;
+  text-align:center;
+  font-weight:600;
+  margin-bottom:10px;
+}
 
-  /* RESPONSIVE */
-  @media(max-width:600px){
-    .info-blocks { grid-template-columns: repeat(3, 1fr); gap:10px; }
-    .info-block { height:70px; }
-    .section { flex:1 1 100%; }
-    .header h2 { font-size:28px; }
-  }
+/* JOBS */
+.job { margin-bottom:12px; }
+.job div { background:#fff; padding:10px; border:1px solid #ccc; border-radius:6px; margin-top:5px; }
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .header h2 { font-size:32px; }
+  .top-left { font-size:12px; }
+  nav a { font-size:14px; padding:8px 10px; }
+}
+@media(max-width:480px){
+  .header h2 { font-size:28px; }
+  .info-blocks { grid-template-columns: 1fr; }
+  nav { flex-direction:column; }
+}
 </style>
 </head>
 <body>
-  <div class="header">
-    <div class="top-left">
-      <div class="logo-circle">
-        MAHESH<br>RABARKA
-      </div>
+
+<div class="header">
+  <div class="top-left">
+    <div class="logo-circle">
+      MAHESH<br>RABARKA
     </div>
-    <h2 style="margin:0; font-size:42px; letter-spacing:2px;">MRRESULT</h2>
-    <div style="font-size:14px; margin-top:6px;">www.mrresult.com</div>
   </div>
+  <h2 style="margin:0; letter-spacing:2px;">MRRESULT</h2>
+  <div style="font-size:14px; margin-top:6px;">www.mrresult.com</div>
+</div>
 
-  <nav>
-    <a href="#">Home</a>
-    <a href="#answerKeysSection">Answerkey</a>
-    <a href="#admitCardSection">Admit Card</a>
-    <a href="#resultSection">Result</a>
-    <a href="#jobsSection">Job</a>
-    <a href="#">Contact</a>
-  </nav>
+<nav>
+  <a href="#">Home</a>
+  <a href="#answerKeysSection">Answerkey</a>
+  <a href="#admitCardSection">Admit Card</a>
+  <a href="#resultSection">Result</a>
+  <a href="#jobsSection">Job</a>
+  <a href="#">Contact</a>
+</nav>
 
-  <!-- 6 COLOR BOXES -->
-  <div class="info-blocks">
+<!-- 6 COLOR BOXES -->
+<div class="info-blocks">
 
-    <div class="info-block info1">
-      <strong>RAS 2023 RESULT</strong><br>
-      <a href="javascript:void(0)" onclick="toggleResult('rasResult')" style="color:#fff; text-decoration:underline;">Click Here</a>
-      <div id="rasResult" style="display:none; margin-top:6px; padding:6px; background:rgba(255,255,255,0.9); color:#000; border-radius:6px; font-size:14px;">
-        Get Result: <a href="https://rpscrajasthan.gov.in" target="_blank">rpscrajasthan.gov.in</a>
-      </div>
-    </div>
-
-    <div class="info-block info2">
-      <strong>UPSC NDA I RESULT</strong><br>
-      <a href="javascript:void(0)" onclick="toggleResult('ndaResult')" style="color:#fff; text-decoration:underline;">Click Here</a>
-      <div id="ndaResult" style="display:none; margin-top:6px; padding:6px; background:rgba(255,255,255,0.9); color:#000; border-radius:6px; font-size:14px;">
-        Get Result: <a href="https://upsc.gov.in" target="_blank">upsc.gov.in</a>
-      </div>
-    </div>
-
-    <div class="info-block info3">
-      <strong>RRB NTPC 12th level Form</strong><br>
-      <a href="javascript:void(0)" onclick="toggleResult('ntpcForm')" style="color:#fff; text-decoration:underline;">Click Here</a>
-      <div id="ntpcForm" style="display:none; margin-top:6px; padding:6px; background:rgba(255,255,255,0.9); color:#000; border-radius:6px; font-size:14px;">
-        <p>Form Start: 28 Oct 2025</p>
-        <p>Last Date: 27 Nov 2025</p>
-        <p>Post: 3050</p>
-        <p>Qualification: 12th Pass Any Stream</p>
-        <p>Form Fee: EWS/GEN/OBC - ₹500</p>
-        <p>(Ex/SC/ST) - ₹250 </p>
-        Apply Now: <a href="https://apply.rrb.gov.in" target="_blank">apply.rrb.gov.in</a>
-      </div>
-    </div>
-
-    <div class="info-block info4">
-      <strong>CGL TIER 1 ANSWER KEY</strong><br>
-      <a href="javascript:void(0)" onclick="toggleResult('cglAnswer')" style="color:#fff; text-decoration:underline;">Click Here</a>
-      <div id="cglAnswer" style="display:none; margin-top:6px; padding:6px; background:rgba(255,255,255,0.9); color:#000; border-radius:6px; font-size:14px;">
-        Click here: <a href="https://ssc.gov.in" target="_blank">ssc.gov.in</a>
-      </div>
-    </div>
-
-    <div class="info-block info5">
-      <strong>RRB NTPC Graduate LEVEL</strong><br>
-      <a href="javascript:void(0)" onclick="toggleResult('rpscAdmit')" style="color:#fff; text-decoration:underline;">Click Here</a>
-      <div id="rpscAdmit" style="display:none; margin-top:6px; padding:6px; background:rgba(255,255,255,0.9); color:#000; border-radius:6px; font-size:14px;">
-        <p>Form Start: 21 Oct 2025</p>
-        <p>Last Date: 20 Nov 2025</p>
-        <p>Post: 5800</p>
-        <p>Qualification: Graduate Pass</p>
-        <p>Form Fee: EWS/GEN/OBC - ₹500</p>
-        <p>(Ex/SC/ST) - ₹250 </p>
-        Apply: <a href="https://rrbapply.gov.in" target="_blank">rrbapply.gov.in</a>
-      </div>
-    </div>
-
-    <div class="info-block info6">
-      <strong>RAJASTHAN Group D Answer Key</strong><br>
-      <a href="javascript:void(0)" onclick="toggleResult('sscGd')" style="color:#fff; text-decoration:underline;">Click Here</a>
-      <div id="sscGd" style="display:none; margin-top:6px; padding:6px; background:rgba(255,255,255,0.9); color:#000; border-radius:6px; font-size:14px;">
-        Apply Now: <a href="https://ssoidrajasthan.in" target="_blank">ssoidrajasthan.in</a>
-      </div>
-    </div>
-
-  </div>
-
-  <script>
-    function toggleResult(id) {
-      var e = document.getElementById(id);
-      e.style.display = (e.style.display === "none" || e.style.display === "") ? "block" : "none";
-    }
-  </script>
-
-  <!-- 4 VERTICAL SECTIONS -->
-  <div class="sections">
-    <div class="section" id="jobsSection">
-      <div class="section-title">Latest Jobs</div>
-
-      <!-- Job1 -->
-      <div class="job"><strong>Delhi DDA recruitment 2025</strong> - <a href="javascript:void(0)" onclick="toggleJob('job1')">Click Here</a>
-        <div id="job1" style="display:none; margin-top:6px; padding:6px; background:#fff; border:1px solid #ccc; border-radius:6px;">
-          <p>Form Start: 6 Oct 2025</p>
-          <p>Last Date: 5 Nov 2025</p>
-          <p>Post: 1732 </p>
-          <p>Qualification: 12th Pass</p>
-          <p>Form Fee: (EWS/OBC) ₹2500 </p>
-          <p> SC/ST/EX ₹1500 </p>
-          <p> Age Limit - 18-25year </p>
-          <p>Apply Link: <a href="https://cdn.digialm.com/EForms/configuredHtml/1258/95962/Index.html" target="_blank">Apply Here</a></p>
-        </div>
-      </div>
-
-      <!-- Job2 -->
-      <div class="job" style="margin-top:10px;">
-        <strong>Indian Army Tes (10+2)</strong> - <a href="javascript:void(0)" onclick="toggleJob('job2')">Click Here</a>
-        <div id="job2" style="display:none; margin-top:6px; padding:6px; background:#fff; border:1px solid #ccc; border-radius:6px;">
-          <p>Form Start: 14 Oct 2025</p>
-          <p>Last Date: 13 Nov 2025</p>
-          <p>Post: 100+</p>
-          <p>Qualification: 12th + IIT scorecard</p>
-          <p>Form Fee: ₹0 </p>
-          <p> Age Limit -16.5 - 19.5years </p>
-          <p>Apply Link: <a href="https://joinindianarmy.gov.in" target="_blank">joinindianarmy.gov.in</a></p>
-        </div>
-      </div>
-
-      <!-- Add more jobs with unique IDs -->
-    </div>
-
-    <div class="section" id="admitCardSection">
-      <div class="section-title">Admit Card</div>
-    </div>
-
-    <div class="section" id="answerKeysSection">
-      <div class="section-title">Answer keys</div>
-    </div>
-
-    <div class="section" id="resultSection">
-      <div class="section-title">Result</div>
+  <div class="info-block info1">
+    <strong>RAS 2023 RESULT</strong><br>
+    <a href="javascript:void(0)" onclick="toggleResult('rasResult')" style="color:#fff; text-decoration:underline;">Click Here</a>
+    <div id="rasResult" style="display:none; margin-top:6px; padding:6px; background:rgba(255,255,255,0.9); color:#000; border-radius:6px; font-size:14px;">
+      Get Result: <a href="https://rpscrajasthan.gov.in" target="_blank">rpscrajasthan.gov.in</a>
     </div>
   </div>
 
-  <script>
-    function toggleJob(id) {
-      var e = document.getElementById(id);
-      e.style.display = (e.style.display === "none" || e.style.display === "") ? "block" : "none";
-    }
-  </script>
-
-  <!-- Footer -->
-  <footer style="background:#111; color:#ccc; text-align:center; padding:25px 10px; font-size:14px;">
-    <p style="margin:5px 0;">© 2025 Mahesh Rabadka | Email: 
-      <a href="mailto:maheshrabarka2005@gmail.com" style="color:#ff3366; text-decoration:none; font-weight:bold;">maheshrabarka2005@gmail.com</a>
-    </p>
-    <button onclick="openFeedback()" style="margin:10px auto 0 auto; display:block; background:#b9003a; color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer;">
-      💬 Give Feedback
-    </button>
-  </footer>
-
-  <!-- Feedback Form -->
-  <div id="feedbackForm" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:#fff; padding:20px; box-shadow:0 6px 20px rgba(0,0,0,0.3); border-radius:8px; z-index:1000; width:90%; max-width:400px;">
-    <div style="display:flex; justify-content:flex-end;">
-      <button onclick="closeFeedback()" style="background:none; border:none; font-size:20px; cursor:pointer;">&times;</button>
+  <div class="info-block info2">
+    <strong>UPSC NDA I RESULT</strong><br>
+    <a href="javascript:void(0)" onclick="toggleResult('ndaResult')" style="color:#fff; text-decoration:underline;">Click Here</a>
+    <div id="ndaResult" style="display:none; margin-top:6px; padding:6px; background:rgba(255,255,255,0.9); color:#000; border-radius:6px; font-size:14px;">
+      Get Result: <a href="https://upsc.gov.in" target="_blank">upsc.gov.in</a>
     </div>
-    <h5 style="margin-bottom:10px; text-align:center;">Send Feedback</h5>
-    <input type="text" placeholder="Your Name" style="width:100%; padding:8px; margin-top:8px; border-radius:6px; border:1px solid #ccc;">
-    <textarea rows="3" placeholder="Your Feedback" style="width:100%; padding:8px; margin-top:8px; border-radius:6px; border:1px solid #ccc;"></textarea>
-    <button onclick="submitFeedback()" style="margin-top:10px; background:#b9003a; color:white; border:none; padding:8px 14px; border-radius:6px; cursor:pointer; width:100%;">Submit</button>
   </div>
 
-  <script>
-    function openFeedback() { document.getElementById("feedbackForm").style.display = "block"; }
-    function closeFeedback() { document.getElementById("feedbackForm").style.display = "none"; }
-    function submitFeedback() { alert("Thank you for your feedback!"); closeFeedback(); }
-  </script>
+  <div class="info-block info3">
+    <strong>RRB NTPC 12th level Form</strong><br>
+    <a href="javascript:void(0)" onclick="toggleResult('ntpcForm')" style="color:#fff; text-decoration:underline;">Click Here</a>
+    <div id="ntpcForm" style="display:none; margin-top:6px; padding:6px; background:rgba(255,255,255,0.9); color:#000; border-radius:6px; font-size:14px;">
+      <p>Form Start: 28 Oct 2025</p>
+      <p>Last Date: 27 Nov 2025</p>
+      <p>Post: 3050</p>
+      <p>Qualification: 12th Pass Any Stream</p>
+      <p>Form Fee: EWS/GEN/OBC - ₹500</p>
+      <p>(Ex/SC/ST) - ₹250 </p>
+      Apply Now: <a href="https://apply.rrb.gov.in" target="_blank">apply.rrb.gov.in</a>
+    </div>
+  </div>
 
-  <!-- WhatsApp Pop-up Icon -->
-  <a href="https://whatsapp.com/channel/0029VbBcQBmA2pLGkcmu2Y0O" target="_blank" id="whatsapp-popup" style="position:fixed; bottom:20px; right:20px; z-index:9999; cursor:pointer;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Join WhatsApp" style="width:60px; height:60px;">
-  </a>
+  <div class="info-block info4">
+    <strong>CGL TIER 1 ANSWER KEY</strong><br>
+    <a href="javascript:void(0)" onclick="toggleResult('cglAnswer')" style="color:#fff; text-decoration:underline;">Click Here</a>
+    <div id="cglAnswer" style="display:none; margin-top:6px; padding:6px; background:rgba(255,255,255,0.9); color:#000; border-radius:6px; font-size:14px;">
+      Click here: <a href="https://ssc.gov.in" target="_blank">ssc.gov.in</a>
+    </div>
+  </div>
+
+  <div class="info-block info5">
+    <strong>RRB NTPC Graduate LEVEL</strong><br>
+    <a href="javascript:void(0)" onclick="toggleResult('rpscAdmit')" style="color:#fff; text-decoration:underline;">Click Here</a>
+    <div id="rpscAdmit" style="display:none; margin-top:6px; padding:6px; background:rgba(255,255,255,0.9); color:#000; border-radius:6px; font-size:14px;">
+      <p>Form Start: 21 Oct 2025</p>
+      <p>Last Date: 20 Nov 2025</p>
+      <p>Post: 5800</p>
+      <p>Qualification: Graduate Pass</p>
+      <p>Form Fee: EWS/GEN/OBC - ₹500</p>
+      <p>(Ex/SC/ST) - ₹250 </p>
+      Apply: <a href="https://rrbapply.gov.in" target="_blank">rrbapply.gov.in</a>
+    </div>
+  </div>
+
+  <div class="info-block info6">
+    <strong>RAJASTHAN Group D Answer Key</strong><br>
+    <a href="javascript:void(0)" onclick="toggleResult('sscGd')" style="color:#fff; text-decoration:underline;">Click Here</a>
+    <div id="sscGd" style="display:none; margin-top:6px; padding:6px; background:rgba(255,255,255,0.9); color:#000; border-radius:6px; font-size:14px;">
+      Apply Now: <a href="https://ssoidrajasthan.in" target="_blank">ssoidrajasthan.in</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function toggleResult(id){
+  var e=document.getElementById(id);
+  e.style.display=(e.style.display==="none" || e.style.display==="")?"block":"none";
+}
+</script>
+
+<!-- SECTIONS -->
+<div class="sections">
+
+  <div class="section" id="jobsSection">
+    <div class="section-title">Latest Jobs</div>
+
+    <div class="job"><strong>Delhi DDA recruitment 2025</strong> - <a href="javascript:void(0)" onclick="toggleJob('job1')">Click Here</a>
+      <div id="job1" style="display:none;">
+        <p>Form Start: 6 Oct 2025</p>
+        <p>Last Date: 5 Nov 2025</p>
+        <p>Post: 1732 </p>
+        <p>Qualification: 12th Pass</p>
+        <p>Form Fee: (EWS/OBC) ₹2500 </p>
+        <p> SC/ST/EX ₹1500 </p>
+        <p> Age Limit - 18-25year </p>
+        <p>Apply Link: <a href="https://cdn.digialm.com/EForms/configuredHtml/1258/95962/Index.html" target="_blank">Apply Here</a></p>
+      </div>
+    </div>
+
+    <div class="job"><strong>Indian Army Tes (10+2)</strong> - <a href="javascript:void(0)" onclick="toggleJob('job2')">Click Here</a>
+      <div id="job2" style="display:none;">
+        <p>Form Start: 14 Oct 2025</p>
+        <p>Last Date: 13 Nov 2025</p>
+        <p>Post: 100+</p>
+        <p>Qualification: 12th + IIT scorecard</p>
+        <p>Form Fee: ₹0 </p>
+        <p> Age Limit -16.5 - 19.5years </p>
+        <p>Apply Link: <a href="https://joinindianarmy.gov.in" target="_blank">joinindianarmy.gov.in</a></p>
+      </div>
+    </div>
+
+    <!-- Add more jobs with unique IDs as needed -->
+  </div>
+
+  <div class="section" id="admitCardSection">
+    <div class="section-title">Admit Card</div>
+  </div>
+
+  <div class="section" id="answerKeysSection">
+    <div class="section-title">Answer keys</div>
+  </div>
+
+  <div class="section" id="resultSection">
+    <div class="section-title">Result</div>
+  </div>
+
+</div>
+
+<script>
+function toggleJob(id){
+  var e=document.getElementById(id);
+  e.style.display=(e.style.display==="none" || e.style.display==="")?"block":"none";
+}
+</script>
+
+<!-- Footer -->
+<footer style="background:#111; color:#ccc; text-align:center; padding:25px 10px; font-size:14px;">
+  <p style="margin:5px 0;">© 2025 Mahesh Rabadka | Email: 
+    <a href="mailto:maheshrabarka2005@gmail.com" style="color:#ff3366; text-decoration:none; font-weight:bold;">maheshrabarka2005@gmail.com</a>
+  </p>
+</footer>
+
 </body>
 </html>
