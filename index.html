@@ -1,479 +1,350 @@
- .<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<style>
-  html {
-    scroll-behavior: smooth;
-  }
-</style>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MRRESULT</title>
   <style>
-    body { margin:0; background:#fff; font-family:Arial, sans-serif; }
+    body {
+      margin: 0;
+      background: #fff;
+      font-family: Arial, sans-serif;
+      transition: background 0.3s, color 0.3s;
+    }
 
     /* HEADER */
     .header {
-      background:#a41f3a;
-      color:#fff;
-      padding:18px 0;
-      text-align:center;
-      position:relative;
-      font-weight:bold;
-    }
-    .top-left {
-      position:absolute;
-      left:20px;
-      top:12px;
-      display:flex;
-      align-items:center;
-      font-size:18px;
-      color:#fff;
-    }
-    .top-left .logo-circle {
-      width:48px; height:48px; border-radius:50%;
-      background:#000; display:flex; align-items:center;
-      justify-content:center; overflow:hidden; border:2px solid white;
-      margin-right:10px;
-    }
-    .top-left .logo-circle img {
-      width:90%; height:90%; object-fit:contain;
+      background: #a41f3a;
+      color: #fff;
+      padding: 16px 0;
+      text-align: center;
+      position: relative;
     }
 
-    /* NAVBAR */
-    nav {
-      background:#780622;
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
+    .logo {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 28px;
+      font-weight: bold;
+      background: #fff;
+      color: #a41f3a;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      line-height: 45px;
+      text-align: center;
     }
-    nav a {
-      color:#fff;
-      text-decoration:none;
-      padding:10px 15px;
-      font-weight:500;
-      font-size:16px;
-    }
-    nav a:hover { background:#9b0830; }
 
-    /* 6 COLOR BOXES */
-    .info-blocks {
-      margin:25px auto 0;
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-      max-width:800px;
-      padding:0 10px;
+    .nav {
+      margin-top: 10px;
     }
-    .info-block {
-      border-radius:15px;
-      color:#fff;
-      text-align:center;
-      height:80px;
-      box-shadow:0 1px 7px rgba(0,0,0,.11);
-      transition:transform .11s;
-    }
-    .info1 { background:#e950cb; }
-    .info2 { background:#484ff9; }
-    .info3 { background:#b2000e; }
-    .info4 { background:#ef7c12; }
-    .info5 { background:#b56700; }
-    .info6 { background:#22b900; }
-    .info-block:hover { transform:scale(1.05); }
 
-    /* 4 VERTICAL BOXES (Result, Admit Card, Jobs, Answer Key) */
+    .nav a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* SECTION WRAPPER */
     .sections {
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      gap:18px;
-      max-width:1100px;
-      margin:40px auto;
-      padding:0 10px;
-    }
-    .section {
-      flex:1 1 240px;
-      background:#f2f2f2;
-      border-radius:10px;
-      padding:15px;
-      box-shadow:0 2px 7px rgba(0,0,0,0.08);
-      min-height:120px;
-      transition:transform .12s;
-    }
-    .section:hover { transform:translateY(-4px); }
-    .section-title {
-      background:#b9003a;
-      color:#fff;
-      padding:10px;
-      border-radius:6px;
-      text-align:center;
-      font-weight:600;
-      margin-bottom:10px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin: 20px;
+      gap: 20px;
     }
 
-    /* RESPONSIVE */
-    @media(max-width:600px){
-      .info-blocks {
-        grid-template-columns: repeat(3, 1fr);
-        gap:10px;
-      }
-      .info-block { height:70px; }
-      .section { flex:1 1 100%; }
-      .header h2 { font-size:28px; }
+    .section {
+      flex: 1 1 300px;
+      background: #f8f8f8;
+      border-radius: 10px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.2);
+      padding: 10px;
     }
+
+    .section-title {
+      background: #b9003a;
+      color: #fff;
+      padding: 10px;
+      border-radius: 6px;
+      text-align: center;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .job strong {
+      color: #a41f3a;
+    }
+
+    .job a {
+      color: #0000ee;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    /* CONTACT SECTION */
+    #contactSection {
+      background: #a41f3a;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+      margin: 20px;
+    }
+
+    #contactSection a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    /* THEME BUTTON */
+    .theme-btn {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      padding: 10px 16px;
+      background: #a41f3a;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 6px rgba(0,0,0,0.3);
+    }
+
+    /* LIGHTS ANIMATION */
+    .lights {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      display: flex;
+      justify-content: space-between;
+      z-index: 1000;
+    }
+
+    .light {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: red;
+      animation: glow 1s infinite alternate;
+    }
+
+    @keyframes glow {
+      0% { opacity: 0.3; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1.1); }
+    }
+
+    /* DIWALI ROCKET & ANAR */
+    .fireworks {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    canvas {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* DARK MODE */
+    body.dark {
+      background: #111;
+      color: #fff;
+    }
+
+    body.dark .section {
+      background: #1e1e1e;
+      box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    }
+
+    body.dark .section-title {
+      background: #ff3366;
+    }
+
+    body.dark .theme-btn {
+      background: #ff3366;
+    }
+
   </style>
 </head>
 <body>
+
+  <!-- LIGHTS -->
+  <div class="lights">
+    <div class="light" style="background:red"></div>
+    <div class="light" style="background:orange"></div>
+    <div class="light" style="background:yellow"></div>
+    <div class="light" style="background:green"></div>
+    <div class="light" style="background:blue"></div>
+    <div class="light" style="background:purple"></div>
+  </div>
+
+  <!-- HEADER -->
   <div class="header">
-    <div class="top-left">
-  <div class="logo-circle" style="display:flex; align-items:center; justify-content:center; background:#000; color:#fff; font-size:09px; font-weight:bold;">
-    MAHESH
-    RABARKA
-  </div>
-    
-    </div>
-    <h2 style="margin:0; font-size:42px; letter-spacing:2px;">MRRESULT</h2>
-    <div style="font-size:14px; margin-top:6px;">www.mrresult.com</div>
-  </div>
-
-  <nav>
-    <a href="#">Home</a>
-    <a href="#answerkeySection">Answerkey</a>
-    <a href="#admitCardSection">Admit Card</a>
-    <a href="#resultSection">Result</a>
-    <a href="#jobsSection">Job</a>
-    <a here="#">Contact</a>
-  </nav>
-
-  <!-- 6 COLOR BOXES -->
-<div class="info-blocks">
-
-  <!-- Box 1 -->
-  <div class="info-block info1">
-    <strong>RAS 2023 RESULT</strong><br>
-    <a href="javascript:void(0)" onclick="toggleResult('rasResult')" style="color:#fff; text-decoration:underline;">Click Here</a>
-    <div id="rasResult" style="display:none; margin-top:6px; padding:6px; background:rgba(255,255,255,0.9); color:#000; border-radius:6px; font-size:14px;">
-      Get Result: <a href="https://rpscrajasthan.gov.in" target="_blank">rpscrajasthan.gov.in</a>
+    <div class="logo">Mahesh Rabarka</div>
+    <h1>MRRESULT</h1>
+    <div class="nav">
+      <a href="#home">Home</a>
+      <a href="#jobsSection">Job</a>
+      <a href="#resultSection">Result</a>
+      <a href="#admitCardSection">Admit Card</a>
+      <a href="#answerkeySection">Answer Key</a>
+      <a href="#contactSection">Contact</a>
     </div>
   </div>
 
-  <!-- Box 2 -->
-  <div class="info-block info2">
-    <strong>UPSC NDA I RESULT</strong><br>
-    <a href="javascript:void(0)" onclick="toggleResult('ndaResult')" style="color:#fff; text-decoration:underline;">Click Here</a>
-    <div id="ndaResult" style="display:none; margin-top:6px; padding:6px; background:rgba(255,255,255,0.9); color:#000; border-radius:6px; font-size:14px;">
-      Get Result: <a href="https://upsc.gov.in" target="_blank">upsc.gov.in</a>
+  <!-- SECTIONS -->
+  <div class="sections">
+
+    <!-- JOB SECTION -->
+    <div class="section" id="jobsSection">
+      <div class="section-title">Latest Jobs</div>
+      <div class="job">
+        <strong>Delhi Police Recruitment (7565 Posts)</strong> -
+        <a href="javascript:void(0)" onclick="toggleJob('job1')">Click Here</a>
+        <div id="job1" style="display:none; margin-top:6px;">Visit official site <a href='https://delhipolice.gov.in'>delhipolice.gov.in</a></div>
+      </div>
+
+      <div class="job">
+        <strong>Rajasthan High Court Clerk Vacancy</strong> -
+        <a href="javascript:void(0)" onclick="toggleJob('job2')">Click Here</a>
+        <div id="job2" style="display:none; margin-top:6px;">Apply online at <a href='https://hcraj.nic.in'>hcraj.nic.in</a></div>
+      </div>
     </div>
+
+    <!-- ADMIT CARD -->
+    <div class="section" id="admitCardSection">
+      <div class="section-title">Admit Card</div>
+      <div class="job">
+        <strong>SSC GD 2024 Admit Card</strong> -
+        <a href="https://ssc.gov.in" target="_blank">Click Here</a>
+      </div>
+    </div>
+
+    <!-- ANSWER KEY -->
+    <div class="section" id="answerkeySection">
+      <div class="section-title">Answer Key</div>
+      <div class="job">
+        <strong>CGL Tier 1 Answer Key</strong> -
+        <a href="https://ssc.gov.in" target="_blank">Click Here</a>
+      </div>
+    </div>
+
+    <!-- RESULT -->
+    <div class="section" id="resultSection">
+      <div class="section-title">Result</div>
+      <div class="job">
+        <strong>UPSC NDA 2024 Result</strong> -
+        <a href="https://upsc.gov.in" target="_blank">Click Here</a>
+      </div>
+    </div>
+
   </div>
 
-  <!-- Box 3 -->
-  <div class="info-block info3">
-    <strong>RRB NTPC 12th level Form</strong><br>
-    <a href="javascript:void(0)" onclick="toggleResult('ntpcForm')" style="color:#fff; text-decoration:underline;">Click Here</a>
-    <div id="ntpcForm" style="display:none; margin-top:6px; padding:6px; background:rgba(255,255,255,0.9); color:#000; border-radius:6px; font-size:14px;">
-      <p>Form Start: 28 Oct 2025</p>
-      <p>Last Date: 27 Nov 2025</p>
-      <p>Post: 3050</p>
-      <p>Qualification: 12thPass Any Stream</p>
-      <p>Form Fee: EWS/GEN/OBC - ₹500</p>
-      <p>(Ex/SC/ST) - ₹250 </p>
-      Apply Now: <a href="https://apply.rrb.gov.in" target="_blank">apply.rrb.gov.in</a>
-    </div>
+  <!-- CONTACT -->
+  <div id="contactSection">
+    <h2>Contact Us</h2>
+    <p>📞 Mobile: 8000471461</p>
+    <p>📧 Email: maheshrabarka2005@gmail.com</p>
+    <p>📢 WhatsApp Channel: <a href="https://whatsapp.com/channel/yourchannel" target="_blank">Join Here</a></p>
   </div>
 
-  <!-- Box 4 -->
-  <div class="info-block info4">
-    <strong>CGL TIER 1 ANSWER KEY</strong><br>
-    <a href="javascript:void(0)" onclick="toggleResult('cglAnswer')" style="color:#fff; text-decoration:underline;">Click Here</a>
-    <div id="cglAnswer" style="display:none; margin-top:6px; padding:6px; background:rgba(255,255,255,0.9); color:#000; border-radius:6px; font-size:14px;">
-      Click here: <a href="https://ssc.gov.in" target="_blank">ssc.gov.in</a>
-    </div>
+  <!-- THEME BUTTON -->
+  <button class="theme-btn" onclick="toggleTheme()">Theme ON/OFF</button>
+
+  <!-- FIREWORKS -->
+  <div class="fireworks">
+    <canvas id="fireCanvas"></canvas>
   </div>
 
-  <!-- Box 5 -->
-  <div class="info-block info5">
-    <strong>RRB NTPC Graduate LEVEL</strong><br>
-    <a href="javascript:void(0)" onclick="toggleResult('rpscAdmit')" style="color:#fff; text-decoration:underline;">Click Here</a>
-    <div id="rpscAdmit" style="display:none; margin-top:6px; padding:6px; background:rgba(255,255,255,0.9); color:#000; border-radius:6px; font-size:14px;">
-      <p>Form Start: 21 Oct 2025</p>
-      <p>Last Date: 20 Nov 2025</p>
-      <p>Post: 5800</p>
-      <p>Qualification: Graduate Pass</p>
-      <p>Form Fee: EWS/GEN/OBC - ₹500</p>
-      <p>(Ex/SC/ST) - ₹250 </p>
-      Apply: <a href="https://rrbapply.gov.in" target="_blank">rrbapply.gov.in</a>
-    </div>
-  </div>
-
-  <!-- Box 6 -->
-  <div class="info-block info6">
-    <strong>RAJASTHAN Group D Answer Key</strong><br>
-    <a href="javascript:void(0)" onclick="toggleResult('sscGd')" style="color:#fff; text-decoration:underline;">Click Here</a>
-    <div id="sscGd" style="display:none; margin-top:6px; padding:6px; background:rgba(255,255,255,0.9); color:#000; border-radius:6px; font-size:14px;">
-      Apply Now: <a href="https://ssoidrajasthan.in" target="_blank">ssoidrajasthan.in</a>
-    </div>
-  </div>
-
-</div>
-
-<script>
-  function toggleResult(id) {
-    var e = document.getElementById(id);
-    if (e.style.display === "none" || e.style.display === "") {
-      e.style.display = "block";
-    } else {
-      e.style.display = "none";
+  <script>
+    function toggleJob(id) {
+      const x = document.getElementById(id);
+      if (x.style.display === "none") x.style.display = "block";
+      else x.style.display = "none";
     }
-  }
-</script>
-    
-  
-  <!-- 4 VERTICAL RECTANGLE BOXES -->
-  
-    </div> <div class="section">
-  <div class="section" id="jobsSection" style="margin-top: 5px;">
-  <div class="section-title">Latest Jobs</div>
-</div>
-<!-- Job1-->
-  <div class="job"><strong>Delhi DDA recruitment 2025</strong> - <a href="javascript:void(0)" onclick="toggleJob('job1')">Click Here</a>
-    <div id="job1" style="display:none; margin-top:6px; padding:6px; background:#fff; border:1px solid #ccc; border-radius:6px;">
-      <p>Form Start: 6 Oct 2025</p>
-      <p>Last Date: 5 Nov 2025</p>
-      <p>Post: 1732 </p>
-      <p>Qualification: 12th Pass</p>
-      <p>Form Fee: (EWS/OBC) ₹2500 </p>
-<p> SC/ST/EX ₹1500 </p>
-<p> Age Limit - 18-25year </p>
-      <p>Apply Link: <a href="https://https://cdn.digialm.com/EForms/configuredHtml/1258/95962/Index.html" target="_blank">https://cdn.digialm.com/EForms/configuredHtml/1258/95962/Index.html</a></p>
-    </div>
-  </div>
-<!-- Jab 2 -->
-  <div class="job"><strong>Indian Army Tes (10+2)</strong> - <a href="javascript:void(0)" onclick="toggleJob('job1')">Click Here</a>
-    <div id="job1" style="display:none; margin-top:6px; padding:6px; background:#fff; border:1px solid #ccc; border-radius:6px;">
-      <p>Form Start: 14 Oct 2025</p>
-      <p>Last Date: 13 Nov 2025</p>
-      <p>Post: 100+</p>
-      <p>Qualification: 12th + IIT scorecard</p>
-      <p>Form Fee: (EWS/OBC) ₹00 </p>
-<p> SC/ST/EX ₹00</p>
-<p> Age Limit -16.5 - 19.5years </p>
-      <p>Apply Link: <a href="https://joinindianarmy.gov.in" target="_blank">joinindianarmy.gov.in</a></p>
-    </div>
-  </div>
 
- <!-- Job -->
-  <div class="job"><strong>RRB JE Form 2025 (2570Posts)</strong> - <a href="javascript:void(0)" onclick="toggleJob('job1')">Click Here</a>
-    <div id="job1" style="display:none; margin-top:6px; padding:6px; background:#fff; border:1px solid #ccc; border-radius:6px;">
-      <p>Form Start:31 Oct 2025</p>
-      <p>Last Date: 30 Nov 2025</p>
-      <p>Post: 7565</p>
-      <p>Qualification: 12th Pass</p>
-      <p>Form Fee: ₹500 (EWS/OBC/GEN)</p>
-      <p>SC/ST/EX :₹250</p>
-      <p>Apply Link: <a href="indianrailways.gov.in" target="_blank">indianrailways.gov.in</a></p>
-    </div>
-  </div>
-
- <!-- Job -->
-  <div class="job"><strong>Delhi Police Recruitment (7565 Posts)</strong> - <a href="javascript:void(0)" onclick="toggleJob('job1')">Click Here</a>
-    <div id="job1" style="display:none; margin-top:6px; padding:6px; background:#fff; border:1px solid #ccc; border-radius:6px;">
-      <p>Form Start: 21 Sep 2025</p>
-      <p>Last Date: 23 Oct 2025</p>
-      <p>Post: 7565</p>
-      <p>Qualification: 12th Pass</p>
-      <p>Form Fee: ₹100 (EWS/OBC/SC/ST)</p>
-      <p>Apply Link: <a href="https://ssc.gov.in" target="_blank">ssc.gov.in</a></p>
-    </div>
-  </div>
-
- <!-- Job 2 -->
-  <div class="job" style="margin-top:10px;">
-    <strong>BSF GD Sports Quota (396)</strong> - <a href="javascript:void(0)" onclick="toggleJob('job2')">Click Here</a>
-    <div id="job2" style="display:none; margin-top:6px; padding:6px; background:#fff; border:1px solid #ccc; border-radius:6px;">
-      <p>Form Start: 16 Oct 2025</p>
-      <p>Last Date: 04 Nov 2025</p>
-      <p>Post: 396</p>
-      <p>Qualification: 10th Pass + Sports Certificate</p>
-      <p>Form Fee: ₹159 (SC/ST: ₹0)</p>
-      <p>Apply Link: <a href="https://rectt.bsf.gov.in" target="_blank">rectt.bsf.gov.in</a></p>
-    </div>
-  </div>
-
-  <!-- Job 3 -->
-  <div class="job" style="margin-top:10px;">
-    <strong>Rajasthan Ayush Officer (RSSB)</strong> - <a href="javascript:void(0)" onclick="toggleJob('job3')">Click Here</a>
-    <div id="job3" style="display:none; margin-top:6px; padding:6px; background:#fff; border:1px solid #ccc; border-radius:6px;">
-      <p>Form Start: 10 Oct 2025</p>
-      <p>Last Date: 09 Nov 2025</p>
-      <p>Post: 1500+</p>
-      <p>Qualification: BAMS</p>
-      <p>Form Fee: ₹0 (All Categories)</p>
-      <p>Apply Link: <a href="https://rajsso.gov" target="_blank">rajsso.gov</a></p>
-    </div>
-  </div>
-
-  <!-- Job 4 -->
-  <div class="job" style="margin-top:10px;">
-    <strong>DSSB TGT Teacher</strong> - <a href="javascript:void(0)" onclick="toggleJob('job4')">Click Here</a>
-    <div id="job4" style="display:none; margin-top:6px; padding:6px; background:#fff; border:1px solid #ccc; border-radius:6px;">
-      <p>Form Start: 09 Oct 2025</p>
-      <p>Last Date: 07 Nov 2025</p>
-      <p>Post: 5346</p>
-      <p>Qualification: BA/BSc/BCom</p>
-      <p>Form Fee: ₹100 (SC/ST/Ex: ₹0)</p>
-      <p>Apply Link: <a href="https://dssbonline.in" target="_blank">dssbonline.in</a></p>
-    </div>
-  </div>
-
-  <!-- Job 5 -->
-  <div class="job" style="margin-top:10px;">
-    <strong>Mukhya Mantri Work From Home (3675)</strong> - <a href="javascript:void(0)" onclick="toggleJob('job5')">Click Here</a>
-    <div id="job5" style="display:none; margin-top:6px; padding:6px; background:#fff; border:1px solid #ccc; border-radius:6px;">
-      <p>Form Start: 15 Oct 2025</p>
-      <p>Last Date: Soon</p>
-      <p>Post: 3675</p>
-      <p>Qualification: 8th pass only Female</p>
-      <p>Form Fee: ₹0</p>
-      <p>Apply Link: <a href="https://mahilawfh.rajasthan.gov.in" target="_blank">mahilawfh.rajasthan.gov.in</a></p>
-    </div>
-  </div>
-
-  <!-- Job 6 -->
-  <div class="job" style="margin-top:10px;">
-    <strong>RPSC Statistical Officer Recruitment 2025</strong> - <a href="javascript:void(0)" onclick="toggleJob('job6')">Click Here</a>
-    <div id="job6" style="display:none; margin-top:6px; padding:6px; background:#fff; border:1px solid #ccc; border-radius:6px;">
-      <p>Form Start: 14 Oct 2025</p>
-      <p>Last Date: 26 Nov 2025</p>
-      <p>Post: 113</p>
-      <p>Qualification: MSc in Math/Agriculture</p>
-      <p>Form Fee: EWS ₹600, OBC/SC/ST ₹400</p>
-      <p>Apply Link: <a href="https://rajsso.gov.in" target="_blank">rajsso.gov.in</a></p>
-    </div>
-  </div>
-
-  <!-- Job 7 -->
-  <div class="job" style="margin-top:10px;">
-    <strong>EMRS Recruitment 2025 (7267)</strong> - <a href="javascript:void(0)" onclick="toggleJob('job7')">Click Here</a>
-    <div id="job7" style="display:none; margin-top:6px; padding:6px; background:#fff; border:1px solid #ccc; border-radius:6px;">
-      <p>Form Start: 19 Sep 2025</p>
-      <p>Last Date: 23 Oct 2025</p>
-      <p>Post: 7267</p>
-      <p>Qualification: BEd, Graduate, 12th, 10th pass</p>
-      <p>Form Fee: Male - ₹2500, Female - ₹2000</p>
-      <p>Apply Link: <a href="https://examinationservices.nic.in" target="_blank">examinationservices.nic.in</a></p>
-    </div>
-  </div>
-
-</div>
-
-<script>
-  function toggleJob(id) {
-    var e = document.getElementById(id);
-    if(e.style.display === "none") {
-      e.style.display = "block";
-    } else {
-      e.style.display = "none";
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
     }
-  }
-</script>
-<script>
-  function toggleJob(id) {
-    var e = document.getElementById(id);
-    if(e.style.display === "none") {
-      e.style.display = "block";
-    } else {
-      e.style.display = "none";
+
+    // Diwali Fireworks Animation
+    const canvas = document.getElementById('fireCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = 300;
     }
-  }
-</script>
-    <div class="section">
-      <div class="section" id="admitCardSection">
-  <div class="section-title">Admit Card</div>
-</div>
-    <div class="section">
-      <div class="section" id="answerKeysSection">
-  <div class="section-title">Answer keys</div>
-</div>
-    <div class="section">
-      <div class="section" id="resultSection">
-  <div class="section-title">Result</div>
-</div>
-   
-  </div>
-<!-- Footer -->
-<footer style="background:#111; color:#ccc; text-align:center; padding:25px 10px; font-size:14px;">
-  <p style="margin:5px 0;">© 2025 Mahesh Rabadka | Email: 
-    <a href="mailto:maheshrabarka2005@gmail.com" style="color:#ff3366; text-decoration:none; font-weight:bold;">maheshrabarka2005@gmail.com</a>
-  </p>
-  <button onclick="openFeedback()" style="margin:10px auto 0 auto; display:block; background:#b9003a; color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer;">
-    💬 Give Feedback
-  </button>
-</footer>
 
-<!-- Feedback Form -->
-<div id="feedbackForm" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:#fff; padding:20px; box-shadow:0 6px 20px rgba(0,0,0,0.3); border-radius:8px; z-index:1000; width:90%; max-width:400px;">
-  <div style="display:flex; justify-content:flex-end;">
-    <button onclick="closeFeedback()" style="background:none; border:none; font-size:20px; cursor:pointer;">&times;</button>
-  </div>
-  <h5 style="margin-bottom:10px; text-align:center;">Send Feedback</h5>
-  <input type="text" placeholder="Your Name" style="width:100%; padding:8px; margin-top:8px; border-radius:6px; border:1px solid #ccc;">
-  <textarea rows="3" placeholder="Your Feedback" style="width:100%; padding:8px; margin-top:8px; border-radius:6px; border:1px solid #ccc;"></textarea>
-  <button onclick="submitFeedback()" style="margin-top:10px; background:#b9003a; color:white; border:none; padding:8px 14px; border-radius:6px; cursor:pointer; width:100%;">Submit</button>
-</div>
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
 
-<script>
-  function openFeedback() {
-    document.getElementById("feedbackForm").style.display = "block";
-  }
-  function closeFeedback() {
-    document.getElementById("feedbackForm").style.display = "none";
-  }
-  function submitFeedback() {
-    alert("Thank you for your feedback!");
-    closeFeedback();
-  }
-</script>
+    class Particle {
+      constructor(x, y, color) {
+        this.x = x;
+        this.y = y;
+        this.color = color;
+        this.radius = Math.random() * 3 + 2;
+        this.velocity = {
+          x: (Math.random() - 0.5) * 4,
+          y: Math.random() * -5 - 2
+        };
+        this.life = 100;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+      }
+      update() {
+        this.x += this.velocity.x;
+        this.y += this.velocity.y;
+        this.velocity.y += 0.05;
+        this.life--;
+      }
+    }
 
-<style>
-/* Responsive adjustments for mobile */
-@media(max-width:600px){
-  footer { padding:20px 10px; font-size:13px; }
-  footer button { width:80%; padding:8px; font-size:14px; }
-  #feedbackForm { width:90%; padding:15px; }
-  #feedbackForm input, #feedbackForm textarea { font-size:14px; }
-  #feedbackForm button { width:100%; padding:8px; font-size:14px; }
-}
-</style>
-</body> 
-</script>
+    function createFirework() {
+      const x = Math.random() * canvas.width;
+      const y = canvas.height;
+      const color = `hsl(${Math.random() * 360}, 100%, 60%)`;
+      for (let i = 0; i < 40; i++) {
+        particles.push(new Particle(x, y, color));
+      }
+    }
 
-<!-- WhatsApp Pop-up Icon -->
-<style>
-  /* Pop-up container */
-  #whatsapp-popup {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 9999;
-    cursor: pointer;
-    animation: blink 1s infinite;
-  }
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach((p, index) => {
+        p.update();
+        p.draw();
+        if (p.life <= 0) particles.splice(index, 1);
+      });
+      requestAnimationFrame(animate);
+    }
 
-  /* Blinking animation */
-  @keyframes blink {
-    0% { opacity: 1; }
-    50% { opacity: 0.2; }
-    100% { opacity: 1; }
-  }
-
-  /* Icon styling */
-  #whatsapp-popup img {
-    width: 60px;
-    height: 60px;
-  }
-</style>
-
-<a href="https://whatsapp.com/channel/0029VbBcQBmA2pLGkcmu2Y0O" target="_blank" id="whatsapp-popup">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Join WhatsApp" />
-</a>
+    setInterval(createFirework, 800);
+    animate();
+  </script>
+</body>
 </html>
