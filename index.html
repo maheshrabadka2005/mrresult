@@ -55,6 +55,7 @@ text-align:center;
 color:#fff;
 animation:float 3s ease-in-out infinite;
 z-index:10;
+position:relative;
 }
 
 @keyframes float{
@@ -62,15 +63,8 @@ z-index:10;
 50%{transform:translateY(-10px);}
 }
 
-h1{
-font-size:32px;
-margin-bottom:15px;
-}
-
-p{
-color:#ddd;
-margin-bottom:20px;
-}
+h1{font-size:32px;margin-bottom:15px;}
+p{color:#ddd;margin-bottom:20px;}
 
 button{
 width:100%;
@@ -86,9 +80,7 @@ box-shadow:0 0 20px cyan;
 transition:.3s;
 }
 
-button:hover{
-transform:scale(1.05);
-}
+button:hover{transform:scale(1.05);}
 
 #msg{
 margin-top:20px;
@@ -101,7 +93,27 @@ color:#ffeb3b;
 margin-top:20px;
 font-size:14px;
 color:#ccc;
-}</style>
+}
+
+/* Coin style */
+.coin{
+position:absolute;
+font-size:24px;
+animation:flyUp 1s ease-out forwards;
+pointer-events:none;
+}
+
+@keyframes flyUp{
+0%{
+transform:translateY(0) scale(1);
+opacity:1;
+}
+100%{
+transform:translateY(-200px) scale(0.5);
+opacity:0;
+}
+}
+</style>
 </head>
 
 <body>
@@ -110,19 +122,18 @@ color:#ccc;
 <h1>🎁 Get ₹200 Instant</h1>
 <p>Click the button below to claim your reward!</p>
 
-<button onclick="playPrank()">💸 Claim Now</button>
+<button onclick="playPrank(event)">💸 Claim Now</button>
 
 <div id="msg"></div>
 
 <audio id="audio" src="audio.mp3" preload="auto"></audio>
 
-<div class="footer">
-❤️ Made by MR
-</div>
+<div class="footer">❤️ Made by MR</div>
 </div>
 
 <script>
-// Stars
+
+// stars background
 for(let i=0;i<100;i++){
 let s=document.createElement("div");
 s.className="star";
@@ -132,21 +143,40 @@ s.style.animationDuration=(Math.random()*3+1)+"s";
 document.body.appendChild(s);
 }
 
-function playPrank(){
+// coin effect
+function createCoins(x,y){
+for(let i=0;i<20;i++){
+let coin=document.createElement("div");
+coin.className="coin";
+coin.innerHTML="🪙";
+
+coin.style.left=x+"px";
+coin.style.top=y+"px";
+
+coin.style.transform=`translate(${Math.random()*200-100}px, ${Math.random()*-200}px)`;
+
+document.body.appendChild(coin);
+
+setTimeout(()=>coin.remove(),1000);
+}
+}
+
+function playPrank(event){
 
 const audio=document.getElementById("audio");
 const msg=document.getElementById("msg");
 
 audio.currentTime=0;
 
+// coin burst position
+createCoins(event.clientX, event.clientY);
+
 audio.play().then(()=>{
 msg.innerHTML = `
-<div style="font-size:140px;line-height:1;">🖕</div>
-<div style="font-size:28px;font-weight:bold;color:#ff4444;">
+<div style="font-size:80px;">🪙🪙🪙</div>
+<div style="font-size:26px;font-weight:bold;color:#ff4444;">
 Gotcha! 😂
-</div>
-
-`;;
+</div>`;
 }).catch(()=>{
 msg.innerHTML="❌ audio.mp3 not found";
 });
