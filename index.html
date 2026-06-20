@@ -24,27 +24,6 @@ background-size:400% 400%;
 animation:bg 10s ease infinite;
 }
 
-/* SHARE BUTTON */
-.share-btn{
-position:fixed;
-top:15px;
-right:15px;
-padding:10px 15px;
-border:none;
-border-radius:25px;
-background:linear-gradient(90deg,#ff512f,#dd2476);
-color:#fff;
-font-weight:bold;
-cursor:pointer;
-box-shadow:0 0 15px rgba(255,0,100,0.6);
-z-index:999;
-transition:0.3s;
-}
-
-.share-btn:hover{
-transform:scale(1.1);
-}
-
 @keyframes bg{
 0%{background-position:0% 50%;}
 50%{background-position:100% 50%;}
@@ -76,7 +55,6 @@ text-align:center;
 color:#fff;
 animation:float 3s ease-in-out infinite;
 z-index:10;
-position:relative;
 }
 
 @keyframes float{
@@ -84,8 +62,15 @@ position:relative;
 50%{transform:translateY(-10px);}
 }
 
-h1{font-size:32px;margin-bottom:15px;}
-p{color:#ddd;margin-bottom:20px;}
+h1{
+font-size:32px;
+margin-bottom:15px;
+}
+
+p{
+color:#ddd;
+margin-bottom:20px;
+}
 
 button{
 width:100%;
@@ -101,7 +86,9 @@ box-shadow:0 0 20px cyan;
 transition:.3s;
 }
 
-button:hover{transform:scale(1.05);}
+button:hover{
+transform:scale(1.05);
+}
 
 #msg{
 margin-top:20px;
@@ -110,40 +97,32 @@ font-weight:bold;
 color:#ffeb3b;
 }
 
-/* coin */
-.coin{
-position:absolute;
-font-size:24px;
-animation:flyUp 1s ease-out forwards;
-pointer-events:none;
-}
-
-@keyframes flyUp{
-0%{transform:translateY(0) scale(1);opacity:1;}
-100%{transform:translateY(-200px) scale(0.5);opacity:0;}
-}
-</style>
+.footer{
+margin-top:20px;
+font-size:14px;
+color:#ccc;
+}</style>
 </head>
 
 <body>
-
-<!-- SHARE BUTTON -->
-<button class="share-btn" onclick="sharePage()">📤 Share</button>
 
 <div class="card">
 <h1>🎁 Get ₹200 Instant</h1>
 <p>Click the button below to claim your reward!</p>
 
-<button onclick="playPrank(event)">💸 Claim Now</button>
+<button onclick="playPrank()">💸 Claim Now</button>
 
 <div id="msg"></div>
 
 <audio id="audio" src="audio.mp3" preload="auto"></audio>
+
+<div class="footer">
+❤️ Made by MR
+</div>
 </div>
 
 <script>
-
-// stars
+// Stars
 for(let i=0;i<100;i++){
 let s=document.createElement("div");
 s.className="star";
@@ -153,56 +132,29 @@ s.style.animationDuration=(Math.random()*3+1)+"s";
 document.body.appendChild(s);
 }
 
-// coins
-function createCoins(x,y){
-for(let i=0;i<20;i++){
-let coin=document.createElement("div");
-coin.className="coin";
-coin.innerHTML="🪙";
-coin.style.left=x+"px";
-coin.style.top=y+"px";
-document.body.appendChild(coin);
-
-setTimeout(()=>coin.remove(),1000);
-}
-}
-
-function playPrank(event){
+function playPrank(){
 
 const audio=document.getElementById("audio");
 const msg=document.getElementById("msg");
 
-createCoins(event.clientX, event.clientY);
-
 audio.currentTime=0;
-audio.play().catch(()=>{});
 
+audio.play().then(()=>{
 msg.innerHTML = `
-<div style="font-size:80px;">🪙🪙🪙</div>
-<div style="font-size:26px;color:#ff4444;font-weight:bold;">
-Gotcha! 😂
+<div style="font-size:140px;line-height:1;">🖕</div>
+<div style="font-size:28px;font-weight:bold;color:#ff4444;">
+Bokachoda.! 😂
 </div>
-`;
+
+`;;
+}).catch(()=>{
+msg.innerHTML="❌ audio.mp3 not found";
+});
 
 if(navigator.vibrate){
 navigator.vibrate([300,100,300]);
 }
-}
 
-// SHARE FUNCTION
-function sharePage(){
-const url = window.location.href;
-
-if(navigator.share){
-navigator.share({
-title: "🎁 Get ₹200 Instant",
-text: "Click and claim reward now!",
-url: url
-});
-}else{
-navigator.clipboard.writeText(url);
-alert("Link copied!");
-}
 }
 
 </script>
