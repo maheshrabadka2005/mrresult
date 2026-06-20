@@ -24,6 +24,27 @@ background-size:400% 400%;
 animation:bg 10s ease infinite;
 }
 
+/* SHARE BUTTON */
+.share-btn{
+position:fixed;
+top:15px;
+right:15px;
+padding:10px 15px;
+border:none;
+border-radius:25px;
+background:linear-gradient(90deg,#ff512f,#dd2476);
+color:#fff;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 0 15px rgba(255,0,100,0.6);
+z-index:999;
+transition:0.3s;
+}
+
+.share-btn:hover{
+transform:scale(1.1);
+}
+
 @keyframes bg{
 0%{background-position:0% 50%;}
 50%{background-position:100% 50%;}
@@ -89,13 +110,7 @@ font-weight:bold;
 color:#ffeb3b;
 }
 
-.footer{
-margin-top:20px;
-font-size:14px;
-color:#ccc;
-}
-
-/* Coin style */
+/* coin */
 .coin{
 position:absolute;
 font-size:24px;
@@ -104,19 +119,16 @@ pointer-events:none;
 }
 
 @keyframes flyUp{
-0%{
-transform:translateY(0) scale(1);
-opacity:1;
-}
-100%{
-transform:translateY(-200px) scale(0.5);
-opacity:0;
-}
+0%{transform:translateY(0) scale(1);opacity:1;}
+100%{transform:translateY(-200px) scale(0.5);opacity:0;}
 }
 </style>
 </head>
 
 <body>
+
+<!-- SHARE BUTTON -->
+<button class="share-btn" onclick="sharePage()">📤 Share</button>
 
 <div class="card">
 <h1>🎁 Get ₹200 Instant</h1>
@@ -127,13 +139,11 @@ opacity:0;
 <div id="msg"></div>
 
 <audio id="audio" src="audio.mp3" preload="auto"></audio>
-
-<div class="footer">❤️ Made by MR</div>
 </div>
 
 <script>
 
-// stars background
+// stars
 for(let i=0;i<100;i++){
 let s=document.createElement("div");
 s.className="star";
@@ -143,18 +153,14 @@ s.style.animationDuration=(Math.random()*3+1)+"s";
 document.body.appendChild(s);
 }
 
-// coin effect
+// coins
 function createCoins(x,y){
 for(let i=0;i<20;i++){
 let coin=document.createElement("div");
 coin.className="coin";
 coin.innerHTML="🪙";
-
 coin.style.left=x+"px";
 coin.style.top=y+"px";
-
-coin.style.transform=`translate(${Math.random()*200-100}px, ${Math.random()*-200}px)`;
-
 document.body.appendChild(coin);
 
 setTimeout(()=>coin.remove(),1000);
@@ -166,25 +172,37 @@ function playPrank(event){
 const audio=document.getElementById("audio");
 const msg=document.getElementById("msg");
 
-audio.currentTime=0;
-
-// coin burst position
 createCoins(event.clientX, event.clientY);
 
-audio.play().then(()=>{
+audio.currentTime=0;
+audio.play().catch(()=>{});
+
 msg.innerHTML = `
 <div style="font-size:80px;">🪙🪙🪙</div>
-<div style="font-size:26px;font-weight:bold;color:#ff4444;">
+<div style="font-size:26px;color:#ff4444;font-weight:bold;">
 Gotcha! 😂
-</div>`;
-}).catch(()=>{
-msg.innerHTML="❌ audio.mp3 not found";
-});
+</div>
+`;
 
 if(navigator.vibrate){
 navigator.vibrate([300,100,300]);
 }
+}
 
+// SHARE FUNCTION
+function sharePage(){
+const url = window.location.href;
+
+if(navigator.share){
+navigator.share({
+title: "🎁 Get ₹200 Instant",
+text: "Click and claim reward now!",
+url: url
+});
+}else{
+navigator.clipboard.writeText(url);
+alert("Link copied!");
+}
 }
 
 </script>
