@@ -21,7 +21,7 @@ height:100vh;
 overflow:hidden;
 background:linear-gradient(-45deg,#020024,#090979,#000428,#1b2735,#000);
 background-size:400% 400%;
-animation:bg 12s ease infinite;
+animation:bg 10s ease infinite;
 }
 
 @keyframes bg{
@@ -45,26 +45,31 @@ to{opacity:1;}
 }
 
 .card{
-width:340px;
+width:350px;
 padding:30px;
+border-radius:20px;
 background:rgba(255,255,255,.12);
 backdrop-filter:blur(15px);
-border-radius:20px;
+box-shadow:0 0 30px rgba(0,255,255,.4);
 text-align:center;
 color:#fff;
-box-shadow:0 0 30px rgba(0,255,255,.4);
 animation:float 3s ease-in-out infinite;
 z-index:10;
 }
 
 @keyframes float{
 0%,100%{transform:translateY(0);}
-50%{transform:translateY(-15px);}
+50%{transform:translateY(-10px);}
 }
 
 h1{
 font-size:32px;
 margin-bottom:15px;
+}
+
+p{
+color:#ddd;
+margin-bottom:20px;
 }
 
 button{
@@ -89,14 +94,21 @@ transform:scale(1.05);
 margin-top:20px;
 font-size:24px;
 font-weight:bold;
+color:#ffeb3b;
 }
-</style>
+
+.footer{
+margin-top:20px;
+font-size:14px;
+color:#ccc;
+}</style>
 </head>
 
 <body>
 
 <div class="card">
 <h1>🎁 Get ₹200 Instant</h1>
+<p>Click the button below to claim your reward!</p>
 
 <button onclick="playPrank()">💸 Claim Now</button>
 
@@ -104,9 +116,13 @@ font-weight:bold;
 
 <audio id="audio" src="audio.mp3" preload="auto"></audio>
 
+<div class="footer">
+❤️ Made by MR
+</div>
 </div>
 
 <script>
+// Stars
 for(let i=0;i<100;i++){
 let s=document.createElement("div");
 s.className="star";
@@ -117,20 +133,24 @@ document.body.appendChild(s);
 }
 
 function playPrank(){
+
 const audio=document.getElementById("audio");
+const msg=document.getElementById("msg");
+
 audio.currentTime=0;
 
 audio.play().then(()=>{
-document.getElementById("msg").innerHTML="😂 Surprise!";
-}).catch((e)=>{
-alert("Audio load nahi hui. Check karo ki audio.mp3 upload hui hai.");
-console.log(e);
+msg.innerHTML="😂 Surprise!";
+}).catch(()=>{
+msg.innerHTML="❌ audio.mp3 not found";
 });
 
 if(navigator.vibrate){
 navigator.vibrate([300,100,300]);
 }
+
 }
+
 </script>
 
 </body>
