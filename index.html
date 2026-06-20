@@ -43,7 +43,6 @@ animation:twinkle 2s infinite alternate;
 from{opacity:.2;}
 to{opacity:1;}
 }
-<button class="share-btn" onclick="sharePage()">🔗 Share</button>
 
 .card{
 width:350px;
@@ -103,24 +102,6 @@ margin-top:20px;
 font-size:14px;
 color:#ccc;
 }</style>
-.share-btn{
-position:fixed;
-top:15px;
-right:15px;
-padding:10px 14px;
-font-size:14px;
-border:none;
-border-radius:8px;
-cursor:pointer;
-background:linear-gradient(90deg,#ff9800,#ff5722);
-color:white;
-box-shadow:0 0 15px rgba(255,100,0,.6);
-z-index:999;
-}
-
-.share-btn:hover{
-transform:scale(1.1);
-}
 </head>
 
 <body>
@@ -177,17 +158,6 @@ navigator.vibrate([300,100,300]);
 }
 
 </script>
-function sharePage(){
-if(navigator.share){
-navigator.share({
-title: "Get ₹200 Instant",
-text: "Check this out!",
-url: window.location.href
-});
-} else {
-alert("Share not supported on this device");
-}
-}
 
 </body>
 </html>
