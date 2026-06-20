@@ -17,11 +17,12 @@ body{
 display:flex;
 justify-content:center;
 align-items:center;
-height:100vh;
+min-height:100vh;
 overflow:hidden;
 background:linear-gradient(-45deg,#020024,#090979,#000428,#1b2735,#000);
 background-size:400% 400%;
 animation:bg 10s ease infinite;
+padding:15px;
 }
 
 @keyframes bg{
@@ -45,8 +46,9 @@ to{opacity:1;}
 }
 
 .card{
-width:350px;
-padding:30px;
+width:90%;
+max-width:350px;
+padding:25px;
 border-radius:20px;
 background:rgba(255,255,255,.12);
 backdrop-filter:blur(15px);
@@ -63,19 +65,20 @@ z-index:10;
 }
 
 h1{
-font-size:32px;
+font-size:26px;
 margin-bottom:15px;
 }
 
 p{
 color:#ddd;
 margin-bottom:20px;
+font-size:14px;
 }
 
 button{
 width:100%;
-padding:16px;
-font-size:22px;
+padding:14px;
+font-size:18px;
 font-weight:bold;
 border:none;
 border-radius:12px;
@@ -87,21 +90,22 @@ transition:.3s;
 }
 
 button:hover{
-transform:scale(1.05);
+transform:scale(1.03);
 }
 
 #msg{
 margin-top:20px;
-font-size:24px;
+font-size:22px;
 font-weight:bold;
 color:#ffeb3b;
 }
 
 .footer{
-margin-top:20px;
-font-size:14px;
+margin-top:15px;
+font-size:12px;
 color:#ccc;
-}</style>
+}
+</style>
 </head>
 
 <body>
@@ -123,7 +127,7 @@ color:#ccc;
 
 <script>
 // Stars
-for(let i=0;i<100;i++){
+for(let i=0;i<80;i++){
 let s=document.createElement("div");
 s.className="star";
 s.style.left=Math.random()*100+"vw";
@@ -133,7 +137,6 @@ document.body.appendChild(s);
 }
 
 function playPrank(){
-
 const audio=document.getElementById("audio");
 const msg=document.getElementById("msg");
 
@@ -141,12 +144,11 @@ audio.currentTime=0;
 
 audio.play().then(()=>{
 msg.innerHTML = `
-<div style="font-size:140px;line-height:1;">🖕</div>
-<div style="font-size:28px;font-weight:bold;color:#ff4444;">
- Bokachoda.! 😂
+<div style="font-size:100px;line-height:1;">🖕</div>
+<div style="font-size:20px;font-weight:bold;color:#ff4444;">
+Bokachoda 😂
 </div>
-
-`;;
+`;
 }).catch(()=>{
 msg.innerHTML="❌ audio.mp3 not found";
 });
@@ -154,9 +156,7 @@ msg.innerHTML="❌ audio.mp3 not found";
 if(navigator.vibrate){
 navigator.vibrate([300,100,300]);
 }
-
 }
-
 </script>
 
 </body>
