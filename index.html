@@ -64,12 +64,7 @@ z-index:10;
 
 h1{
 font-size:32px;
-margin-bottom:10px;
-}
-
-p{
-color:#ddd;
-margin-bottom:20px;
+margin-bottom:15px;
 }
 
 button{
@@ -103,14 +98,12 @@ font-weight:bold;
 <div class="card">
 <h1>🎁 Get ₹200 Instant</h1>
 
-
 <button onclick="playPrank()">💸 Claim Now</button>
 
 <div id="msg"></div>
 
-<audio id="audio" preload="auto">
-  <source src="audio.mp3" type="audio/mpeg">
-</audio>
+<audio id="audio" src="audio.mp3" preload="auto"></audio>
+
 </div>
 
 <script>
@@ -123,22 +116,19 @@ s.style.animationDuration=(Math.random()*3+1)+"s";
 document.body.appendChild(s);
 }
 
-function playPrank() {
-    const audio = document.getElementById("audio");
+function playPrank(){
+const audio=document.getElementById("audio");
+audio.currentTime=0;
 
-    audio.pause();
-    audio.currentTime = 0;
+audio.play().then(()=>{
+document.getElementById("msg").innerHTML="😂 Surprise!";
+}).catch((e)=>{
+alert("Audio load nahi hui. Check karo ki audio.mp3 upload hui hai.");
+console.log(e);
+});
 
-    audio.play().catch(function(err){
-        console.log(err);
-    });
-
-    document.getElementById("msg").innerHTML = "😂 Surprise!";
-
-    if (navigator.vibrate) {
-        navigator.vibrate([300,100,300]);
-    }
-}
+if(navigator.vibrate){
+navigator.vibrate([300,100,300]);
 }
 }
 </script>
