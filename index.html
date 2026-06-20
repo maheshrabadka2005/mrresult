@@ -95,14 +95,12 @@ margin-top:20px;
 font-size:24px;
 font-weight:bold;
 color:#ffeb3b;
-
+}
 
 .footer{
-    margin-top:40px;
-    font-size:15px;
-    color:#ccc;
-    text-align:center;
-
+margin-top:20px;
+font-size:14px;
+color:#ccc;
 }</style>
 </head>
 
@@ -142,7 +140,13 @@ const msg=document.getElementById("msg");
 audio.currentTime=0;
 
 audio.play().then(()=>{
-msg.innerHTML="😂 Surprise!";
+msg.innerHTML = `
+<div style="font-size:140px;line-height:1;">🖕</div>
+<div style="font-size:28px;font-weight:bold;color:#ff4444;">
+Gotcha! 😂
+</div>
+
+`;;
 }).catch(()=>{
 msg.innerHTML="❌ audio.mp3 not found";
 });
