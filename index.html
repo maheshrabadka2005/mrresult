@@ -1,164 +1,164 @@
-‎<!DOCTYPE html>
-‎<html lang="en">
-‎<head>
-‎<meta charset="UTF-8">
-‎<meta name="viewport" content="width=device-width, initial-scale=1.0">
-‎<title>🎁 Get ₹200 Instant</title>
-‎
-‎<style>
-‎*{
-‎margin:0;
-‎padding:0;
-‎box-sizing:border-box;
-‎font-family:Arial,sans-serif;
-‎}
-‎
-‎body{
-‎display:flex;
-‎justify-content:center;
-‎align-items:center;
-‎min-height:100vh;
-‎overflow:hidden;
-‎background:linear-gradient(-45deg,#020024,#090979,#000428,#1b2735,#000);
-‎background-size:400% 400%;
-‎animation:bg 10s ease infinite;
-‎padding:15px;
-‎}
-‎
-‎@keyframes bg{
-‎0%{background-position:0% 50%;}
-‎50%{background-position:100% 50%;}
-‎100%{background-position:0% 50%;}
-‎}
-‎
-‎.star{
-‎position:absolute;
-‎width:2px;
-‎height:2px;
-‎background:#fff;
-‎border-radius:50%;
-‎animation:twinkle 2s infinite alternate;
-‎}
-‎
-‎@keyframes twinkle{
-‎from{opacity:.2;}
-‎to{opacity:1;}
-‎}
-‎
-‎.card{
-‎width:90%;
-‎max-width:350px;
-‎padding:25px;
-‎border-radius:20px;
-‎background:rgba(255,255,255,.12);
-‎backdrop-filter:blur(15px);
-‎box-shadow:0 0 30px rgba(0,255,255,.4);
-‎text-align:center;
-‎color:#fff;
-‎animation:float 3s ease-in-out infinite;
-‎z-index:10;
-‎}
-‎
-‎@keyframes float{
-‎0%,100%{transform:translateY(0);}
-‎50%{transform:translateY(-10px);}
-‎}
-‎
-‎h1{
-‎font-size:26px;
-‎margin-bottom:15px;
-‎}
-‎
-‎p{
-‎color:#ddd;
-‎margin-bottom:20px;
-‎font-size:14px;
-‎}
-‎
-‎button{
-‎width:100%;
-‎padding:14px;
-‎font-size:18px;
-‎font-weight:bold;
-‎border:none;
-‎border-radius:12px;
-‎cursor:pointer;
-‎background:linear-gradient(90deg,#00e5ff,#00c853);
-‎color:#fff;
-‎box-shadow:0 0 20px cyan;
-‎transition:.3s;
-‎}
-‎
-‎button:hover{
-‎transform:scale(1.03);
-‎}
-‎
-‎#msg{
-‎margin-top:20px;
-‎font-size:22px;
-‎font-weight:bold;
-‎color:#ffeb3b;
-‎}
-‎
-‎.footer{
-‎margin-top:15px;
-‎font-size:12px;
-‎color:#ccc;
-‎}
-‎</style>
-‎</head>
-‎
-‎<body>
-‎
-‎<div class="card">
-‎<h1>🎁 Get ₹200 Instant</h1>
-‎<p>Click the button below to claim your reward!</p>
-‎
-‎<button onclick="playPrank()">💸 Claim Now</button>
-‎
-‎<div id="msg"></div>
-‎
-‎<audio id="audio" src="audio.mp3" preload="auto"></audio>
-‎
-‎<div class="footer">
-‎❤️ Made by MR
-‎</div>
-‎</div>
-‎
-‎<script>
-‎// Stars
-‎for(let i=0;i<80;i++){
-‎let s=document.createElement("div");
-‎s.className="star";
-‎s.style.left=Math.random()*100+"vw";
-‎s.style.top=Math.random()*100+"vh";
-‎s.style.animationDuration=(Math.random()*3+1)+"s";
-‎document.body.appendChild(s);
-‎}
-‎
-‎function playPrank(){
-‎const audio=document.getElementById("audio");
-‎const msg=document.getElementById("msg");
-‎
-‎audio.currentTime=0;
-‎
-‎audio.play().then(()=>{
-‎msg.innerHTML = `
-‎<div style="font-size:100px;line-height:1;">🖕</div>
-‎<div style="font-size:20px;font-weight:bold;color:#ff4444;">
-‎Bokachoda 😂
-‎</div>
-‎`;
-‎}).catch(()=>{
-‎msg.innerHTML="❌ audio.mp3 not found";
-‎});
-‎
-‎if(navigator.vibrate){
-‎navigator.vibrate([300,100,300]);
-‎}
-‎}
-‎</script>
-‎
-‎</body>
-‎</html>
-‎
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎁 Get ₹200 Instant</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+overflow:hidden;
+background:linear-gradient(-45deg,#020024,#090979,#000428,#1b2735,#000);
+background-size:400% 400%;
+animation:bg 10s ease infinite;
+padding:15px;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.star{
+position:absolute;
+width:2px;
+height:2px;
+background:#fff;
+border-radius:50%;
+animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+from{opacity:.2;}
+to{opacity:1;}
+}
+
+.card{
+width:90%;
+max-width:350px;
+padding:25px;
+border-radius:20px;
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(15px);
+box-shadow:0 0 30px rgba(0,255,255,.4);
+text-align:center;
+color:#fff;
+z-index:10;
+}
+
+h1{
+font-size:26px;
+margin-bottom:15px;
+}
+
+p{
+color:#ddd;
+margin-bottom:20px;
+font-size:14px;
+}
+
+button{
+width:100%;
+padding:14px;
+font-size:18px;
+font-weight:bold;
+border:none;
+border-radius:12px;
+cursor:pointer;
+background:linear-gradient(90deg,#00e5ff,#00c853);
+color:#fff;
+box-shadow:0 0 20px cyan;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.03);
+}
+
+#msg{
+margin-top:20px;
+font-size:22px;
+font-weight:bold;
+text-align:center;
+}
+
+.footer{
+margin-top:15px;
+font-size:12px;
+color:#ccc;
+}
+
+@keyframes pop{
+0%{transform:scale(0);}
+70%{transform:scale(1.2);}
+100%{transform:scale(1);}
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+<h1>🎁 Get ₹200 Instant</h1>
+<p>Click the button below to claim your reward!</p>
+
+<button onclick="playPrank()">💸 Claim Now</button>
+
+<div id="msg"></div>
+
+<audio id="audio" src="audio.mp3"></audio>
+
+<div class="footer">
+❤️ Made by MR
+</div>
+</div>
+
+<script>
+
+// Stars
+for(let i=0;i<80;i++){
+let s=document.createElement("div");
+s.className="star";
+s.style.left=Math.random()*100+"vw";
+s.style.top=Math.random()*100+"vh";
+s.style.animationDuration=(Math.random()*3+1)+"s";
+document.body.appendChild(s);
+}
+
+function playPrank(){
+
+const audio=document.getElementById("audio");
+const msg=document.getElementById("msg");
+
+msg.innerHTML=`
+<div style="font-size:100px;animation:pop .4s;">🖕</div>
+<div style="font-size:24px;font-weight:bold;color:#ff4444;">
+Bokachoda 😂
+</div>
+`;
+
+audio.play().catch(function(){});
+
+if(navigator.vibrate){
+navigator.vibrate([300,100,300]);
+}
+
+}
+
+</script>
+
+</body>
+</html>
